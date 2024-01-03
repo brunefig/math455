@@ -1,0 +1,5 @@
+# To hide the Anki ID property from pushed notes, run the following commands locally:
+# git config filter.gitignore.clean "sed '/^:ANKI_NOTE_ID: .*$/d'"
+# git config filter.gitignore.smudge cat
+
+*.org filter=gitignore

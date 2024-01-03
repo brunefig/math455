@@ -6,3 +6,5 @@
 #+LATEX_HEADER: \usepackage{fouriernc}
 
 * 2024-01-05 
+:PROPERTIES:
+:END:
