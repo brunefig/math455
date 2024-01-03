@@ -1,0 +1,8 @@
+# -*- after-save-hook: (lambda () (org-latex-export-to-pdf t)) org-export-before-parsing-hook: (org-export-before-parsing-mathnotes) -*-
+#+LATEX_CLASS: mathnotes
+#+TITLE: MATH 455 (Honours Analysis 4)
+#+AUTHOR: J. Han
+#+PROPERTY: ANKI_DECK /edu/math/455/
+#+LATEX_HEADER: \usepackage{fouriernc}
+
+* 2024-01-05 
