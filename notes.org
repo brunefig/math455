@@ -3,8 +3,273 @@
 #+TITLE: MATH 455 (Honours Analysis 4)
 #+AUTHOR: J. Han
 #+PROPERTY: ANKI_DECK /edu/math/455/
-#+LATEX_HEADER: \usepackage{fouriernc}
 
-* 2024-01-05 
+* preamble
+
+The following notes are adapted from lectures given by Dmitry Jakobson in Winter 2024.
+All errors in interpretation, reasoning, coherence, and articulation are my own.
+
+This document's source code, located at https://github.com/brunefig/math455/blob/main/notes.org,
+can be converted into [[https://apps.ankiweb.net/][Anki]] flashcards with the [[https://github.com/louietan/anki-editor/][\texttt{anki-editor}]] package for [[https://www.gnu.org/software/emacs/][GNU Emacs]].
+Flashcard [[https://en.wikipedia.org/wiki/Cloze_test][cloze deletions]] are typeset in {{c1::magenta}}.
+
+* 2024-01-05 topology and metric spaces
+** connectedness
+*** connected space
 :PROPERTIES:
+:ANKI_NOTE_TYPE: Cloze
 :END:
+**** Cloze
+A topological space $X$ is {{c1::a <<<connected space>>>}} when
+there are no {{c2::open}} sets $U,U' \in$
+{{c3::$\mathcal{P}(X) \setminus \{\emptyset\}$}} such that
+{{c3::$U \cap U'$ = $\emptyset$}}
+and {{c3::$X$ = $U \cup U'$}}.
+*** connected set
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Cloze
+:END:
+**** Cloze
+For a topological space $X$,
+$A \subseteq X$ is {{c1::a <<<connected>>> set}} when
+there are no {{c2::open}} sets $U,U' \subseteq X$ such that
+{{c3::$A \cap U \neq \emptyset$}},
+{{c3::$A \cap U' \neq \emptyset$}},
+{{c3::$U \cap U'$ = $\emptyset$}},
+and {{c3::$A$ = $(U \cap A) \cup (U' \cap A)$}}.
+*** path connectedness
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Cloze
+:END:
+**** Cloze
+A topological space $X$ is {{c1::a <<<path connected>>> space}} when
+{{c2::$\forall x,x' \in X$ :
+$\exists$ continuous $f : [0,1] \rightarrow X$ :
+$[f(0)$ = $x$
+$\land$
+$f(1)$ = $x']$}}.
+**** path connected implies connected
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Cloze
+:END:
+***** Cloze
+{{c2::All}} path connected spaces are {{c1::connected spaces}}.
+**** connectedness is equivalent to path connectedness in R^n
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Cloze
+:END:
+***** Cloze
+For {{c1::open}} sets in {{c1::$\mathbb{R}^n$}},
+{{c2::connectedness}} is equivalent to {{c2::path connectedness}}.
+*** connected components
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Cloze
+:END:
+**** Cloze
+A topological space $X$ can be expressed as
+{{c1::the disjoint union of maximal connected subsets}},
+where a connected subset is called maximal when
+{{c1::it has no connected superset in $X$}}.
+These subsets are the {{c2::<<<connected components>>>}} of $X$.
+**** path components
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Cloze
+:END:
+***** Cloze
+A topological space $X$ can be expressed as
+{{c1::the disjoint union of maximal path connected subsets}},
+where a path connected subset is called maximal when
+{{c1::it has no path connected superset in $X$}}.
+These subsets are the {{c2::<<<path components>>>}} of $X$.
+***** path connected spaces have one path component
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Cloze
+:END:
+****** Cloze
+A {{c1::path connected}} space has exactly one {{c2::path component}}.
+***** connected does not imply path connected
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Cloze
+:END:
+****** Cloze
+{{c1::$\Bigl\{\Bigl(x,\sin\left(\frac{1}{x}\right)\Bigr) \Bigm| x \in (0,1]\Bigr\} \cup \{(0,0)\}$}}
+$\subseteq \mathbb{R}^2$ is
+{{c2::connected}} but not {{c2::path connected}}
+because {{c3::it has two path components}}.
+*** continuous image of a connected set
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Cloze
+:END:
+**** Cloze
+If $f$ : $X \rightarrow \mathbb{R}$ is continuous,
+$A \subseteq X$ is connected, and
+$x,x' \in f(A)$
+such that $x < x'$,
+then {{c1::$[x,x'] \subseteq f(A)$}}.
+**** proof
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Basic
+:END:
+***** Front
+If $f$ : $X \rightarrow \mathbb{R}$ is continuous,
+$A \subseteq X$ is connected, and
+$x,x' \in f(A)$
+such that $x < x'$, prove that
+
+$[x,x'] \subseteq f(A)$.
+***** Back
+Suppose $\exists c \in \bigl(f(x'),f(x)\bigr)$ : $c \notin f(A)$.
+Then, since
+$f^{-1}\bigl((-\infty,c)\bigr)$
+and
+$f^{-1}\bigl((c,\infty)\bigr)$
+are open,
+$A \subseteq f^{-1}\bigl((-\infty,c)\bigr) \cup f^{-1}\bigl((c,\infty)\bigr)$
+is not connected.
+** examples of metric spaces
+*** induced metric for a normed vector space
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Cloze
+:END:
+**** Cloze
+Any normed vector space is a metric space with the {{c1::induced}} metric
+
+$d(x,x')$ := {{c2::$||x-x'||$}}.
+*** l_p
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Cloze
+:END:
+**** Cloze
+For $p \in$ {{c1::$(0,\infty)$}},
+
+{{c2::$l_p$}} :=
+{{c3::$\left\{(x_n)_{n \in \mathbb{N} } \in \mathbb{C}^{\mathbb{N} } \,\middle| \sum_{n \in \mathbb{N} } |x_n|^p < \infty\right\}$}}
+
+is a normed vector space with
+
+$||x||_p$ :=
+{{c3::$\left(\sum_{n \in \mathbb{N} } |x_n|^p\right)^{1/p}$}}.
+**** 1/n sequence
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Cloze
+:END:
+***** Cloze
+The sequence $\left(\frac{1}{n}\right)_{n \in \mathbb{Z}_+}$
+is a member of $l_p$
+when {{c1::$p > 1$}}.
+***** proof
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Basic
+:END:
+****** Front
+Prove that
+$\left(\frac{1}{n}\right)_{n \in \mathbb{Z}_+} \in l_p$
+when $p > 1$.
+****** Back
+$\left(\frac{1}{n}\right)_{n \in \mathbb{Z}_+} \in l_p$
+$\iff$
+$\sum_{n \in \mathbb{Z}_+} \left(\frac{1}{n}\right)^p < \infty$
+$\iff$
+$p > 1$.
+*** L_p
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Cloze
+:END:
+**** Cloze
+For $p \in$ {{c1::$[1,\infty)$}},
+
+{{c2::$L^p([a,b])$}} :=
+{{c3::$\left\{f(x) \middle| \int_a^b |f(x)|^p dx < \infty\right\}$}}
+
+is a normed vector space with
+
+$||f||_p$ :=
+{{c3::$(\int_a^b |f(x)|^p dx)^{1/p}$}}.
+*** symmetric difference metric
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Cloze
+:END:
+**** Cloze
+$d(A,A')$ :=
+$\text{vol}_n(A \triangle A')$
+is a possible metric on {{c1::$\mathbb{R}^n$}}.
+*** Hausdorff
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Cloze
+:END:
+**** Cloze
+For a metric space $(X,d)$,
+a set $A \subseteq X$,
+and $\epsilon > 0$,
+let $A_\epsilon$ :=
+{{c1::$\bigcup_{x \in A} B(x,\epsilon)$}}.
+Then the {{c2::<<<Hausdorff>>>}} metric is
+
+{{c2::$d_H(A,B)$}} := {{c3::$\inf \bigl\{\,\epsilon > 0 \bigm| A' \subseteq A_\epsilon \land A \subseteq A'_\epsilon\bigr\}$}}.
+*** $p\text{-adic}$ numbers
+**** normed vector space of rational numbers
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Cloze
+:END:
+***** Cloze
+Given a fixed prime $p$,
+{{c1::\[\forall q \in \mathbb{Q} : \exists (a,b,n) \in \mathbb{Z}^3 : \left[\,q = p^n \cdot \frac{a}{b} \land\, \gcd(a,p) = \gcd(b,p) = 1\,\right],\]}}
+and {{c2::$\mathbb{Q}$}} is a normed vector space with
+
+$||q||_p$ := {{c3::$\begin{cases} p^{-n} & q \neq 0 \\ 0 & q = 0 \end{cases}$}}.
+***** p = 2
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Cloze
+:END:
+****** Cloze
+The 2-adic norm of $\frac{96}{7}$ is
+{{c1::$\frac{1}{32}$}}.
+***** p = 3
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Cloze
+:END:
+****** Cloze
+The 3-adic norm of $3^{-2024} \cdot \frac{8}{13}$ is
+{{c1::$3^{2024}$}}.
+***** intuition for the p-adic norm
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Cloze
+:END:
+****** Cloze
+The {{c3::$p\text{-adic}$}} norm
+$||q||_p$ is {{c1::small}}
+if $q$ is {{c2::divisible by a large power of $p$}}.
+***** intuition for the p-adic norm of zero
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Cloze
+:END:
+****** Cloze
+The $p\text{-adic}$ norm of $0$ is $0$ because
+{{c1::$0$ is divisible by any power of $p$}}.
+**** COMMENT completion of Q wrt the p-adic norm
+~= Laurent series in powers of p with finitely many negative powers of p
+extend Taylor series into negative powers
+a_{-k} p^{-k} + a_{-k+1} p^{-k+1} + \dots + a_0 + a_1 p + a_2 p^2 + \dots + a_n p^n + \dots
+where $a_i \in \{\0,\dots,p-1}$ are remainders mod p
+\lim ||x||_p = ||a_n p^n + a_{n+1} p^{n+1} + \dots||_p \rightarrow 0
+this set of Laurent series is $\mathbb{Q}_p$, the p-adic rational numbers
+**** product formula for /p/-adic norms of rational numbers
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Cloze
+:END:
+***** Cloze
+(/p/-adic product formula.)
+If $q \in$ {{c1::$\mathbb{Q} \setminus \{0\}$}}, then
+{{c2::$|q| \cdot \prod_{p \text{ prime} } ||q||_p$}} = {{c3::$1$}}.
+**** COMMENT difference between mathematicians, physicists, and engineers
+math: 9 is a counterexample
+physicists: 9 is an experimental error
+engineer: 9 is prime
+** convexness
+*** definition
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Cloze
+:END:
+**** Cloze
+A set $X$ is {{c1::<<<convex>>>}} when
+{{c2::the line segment joining any two points in $X$ lies within $X$}}.
