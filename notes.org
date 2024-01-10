@@ -13,14 +13,14 @@ This document's source code, located at https://github.com/brunefig/math455/blob
 can be converted into [[https://apps.ankiweb.net/][Anki]] flashcards with the [[https://github.com/louietan/anki-editor/][\texttt{anki-editor}]] package for [[https://www.gnu.org/software/emacs/][GNU Emacs]].
 Flashcard [[https://en.wikipedia.org/wiki/Cloze_test][cloze deletions]] are typeset in {{c1::magenta}}.
 
-* 2024-01-05 topology and metric spaces
+* 2024-01-05 topology & metric spaces
 ** connectedness
 *** connected space
 :PROPERTIES:
 :ANKI_NOTE_TYPE: Cloze
 :END:
 **** Cloze
-A topological space $X$ is {{c1::a <<<connected space>>>}} when
+A topological space $X$ is {{c1::a <<<connected space>>>}} iff
 there are no {{c2::open}} sets $U,U' \in$
 {{c3::$\mathcal{P}(X) \setminus \{\emptyset\}$}} such that
 {{c3::$U \cap U'$ = $\emptyset$}}
@@ -31,7 +31,7 @@ and {{c3::$X$ = $U \cup U'$}}.
 :END:
 **** Cloze
 For a topological space $X$,
-$A \subseteq X$ is {{c1::a <<<connected>>> set}} when
+$A \subseteq X$ is {{c1::a <<<connected>>> set}} iff
 there are no {{c2::open}} sets $U,U' \subseteq X$ such that
 {{c3::$A \cap U \neq \emptyset$}},
 {{c3::$A \cap U' \neq \emptyset$}},
@@ -42,7 +42,7 @@ and {{c3::$A$ = $(U \cap A) \cup (U' \cap A)$}}.
 :ANKI_NOTE_TYPE: Cloze
 :END:
 **** Cloze
-A topological space $X$ is {{c1::a <<<path connected>>> space}} when
+A topological space $X$ is {{c1::a <<<path connected>>> space}} iff
 {{c2::$\forall x,x' \in X$ :
 $\exists$ continuous $f : [0,1] \rightarrow X$ :
 $[f(0)$ = $x$
@@ -60,7 +60,7 @@ $f(1)$ = $x']$}}.
 :END:
 ***** Cloze
 For {{c1::open}} sets in {{c1::$\mathbb{R}^n$}},
-{{c2::connectedness}} is equivalent to {{c2::path connectedness}}.
+{{c2::connectedness}} is equivalent to {{c3::path connectedness}}.
 *** connected components
 :PROPERTIES:
 :ANKI_NOTE_TYPE: Cloze
@@ -68,7 +68,7 @@ For {{c1::open}} sets in {{c1::$\mathbb{R}^n$}},
 **** Cloze
 A topological space $X$ can be expressed as
 {{c1::the disjoint union of maximal connected subsets}},
-where a connected subset is called maximal when
+where a connected subset is called maximal iff
 {{c1::it has no connected superset in $X$}}.
 These subsets are the {{c2::<<<connected components>>>}} of $X$.
 **** path components
@@ -78,7 +78,7 @@ These subsets are the {{c2::<<<connected components>>>}} of $X$.
 ***** Cloze
 A topological space $X$ can be expressed as
 {{c1::the disjoint union of maximal path connected subsets}},
-where a path connected subset is called maximal when
+where a path connected subset is called maximal iff
 {{c1::it has no path connected superset in $X$}}.
 These subsets are the {{c2::<<<path components>>>}} of $X$.
 ***** path connected spaces have one path component
@@ -92,7 +92,7 @@ A {{c1::path connected}} space has exactly one {{c2::path component}}.
 :ANKI_NOTE_TYPE: Cloze
 :END:
 ****** Cloze
-{{c1::$\Bigl\{\Bigl(x,\sin\left(\frac{1}{x}\right)\Bigr) \Bigm| x \in (0,1]\Bigr\} \cup \{(0,0)\}$}}
+{{c1::$\Bigl\{\Bigl(x,\sin\left(\frac{1}{x}\right)\Bigr) \Bigm| x \in (0,1]\,\Bigr\} \cup \{(0,0)\}$}}
 $\subseteq \mathbb{R}^2$ is
 {{c2::connected}} but not {{c2::path connected}}
 because {{c3::it has two path components}}.
@@ -119,7 +119,7 @@ such that $x < x'$, prove that
 $[x,x'] \subseteq f(A)$.
 ***** Back
 Suppose $\exists c \in \bigl(f(x'),f(x)\bigr)$ : $c \notin f(A)$.
-Then, since
+Since
 $f^{-1}\bigl((-\infty,c)\bigr)$
 and
 $f^{-1}\bigl((c,\infty)\bigr)$
@@ -148,7 +148,7 @@ For $p \in$ {{c1::$(0,\infty)$}},
 is a normed vector space with
 
 $||x||_p$ :=
-{{c3::$\left(\sum_{n \in \mathbb{N} } |x_n|^p\right)^{1/p}$}}.
+{{c3::$\bigl(\sum_{n \in \mathbb{N} } |x_n|^p\bigr)^{1/p}$}}.
 **** 1/n sequence
 :PROPERTIES:
 :ANKI_NOTE_TYPE: Cloze
@@ -156,7 +156,7 @@ $||x||_p$ :=
 ***** Cloze
 The sequence $\left(\frac{1}{n}\right)_{n \in \mathbb{Z}_+}$
 is a member of $l_p$
-when {{c1::$p > 1$}}.
+iff {{c1::$p > 1$}}.
 ***** proof
 :PROPERTIES:
 :ANKI_NOTE_TYPE: Basic
@@ -164,7 +164,7 @@ when {{c1::$p > 1$}}.
 ****** Front
 Prove that
 $\left(\frac{1}{n}\right)_{n \in \mathbb{Z}_+} \in l_p$
-when $p > 1$.
+iff $p > 1$.
 ****** Back
 $\left(\frac{1}{n}\right)_{n \in \mathbb{Z}_+} \in l_p$
 $\iff$
@@ -179,12 +179,12 @@ $p > 1$.
 For $p \in$ {{c1::$[1,\infty)$}},
 
 {{c2::$L^p([a,b])$}} :=
-{{c3::$\left\{f(x) \middle| \int_a^b |f(x)|^p dx < \infty\right\}$}}
+{{c3::$\left\{f(x) \,\middle| \int_a^b |f(x)|^p dx < \infty\right\}$}}
 
 is a normed vector space with
 
 $||f||_p$ :=
-{{c3::$(\int_a^b |f(x)|^p dx)^{1/p}$}}.
+{{c3::$\left(\int_a^b |f(x)|^p dx\right)^{1/p}$}}.
 *** symmetric difference metric
 :PROPERTIES:
 :ANKI_NOTE_TYPE: Cloze
@@ -205,7 +205,7 @@ let $A_\epsilon$ :=
 {{c1::$\bigcup_{x \in A} B(x,\epsilon)$}}.
 Then the {{c2::<<<Hausdorff>>>}} metric is
 
-{{c2::$d_H(A,B)$}} := {{c3::$\inf \bigl\{\,\epsilon > 0 \bigm| A' \subseteq A_\epsilon \land A \subseteq A'_\epsilon\bigr\}$}}.
+{{c2::$d_H(A,A')$}} := {{c3::$\inf \bigl\{\,\epsilon > 0 \bigm| A' \subseteq A_\epsilon \land A \subseteq A'_\epsilon\bigr\}$}}.
 *** $p\text{-adic}$ numbers
 **** normed vector space of rational numbers
 :PROPERTIES:
@@ -213,7 +213,7 @@ Then the {{c2::<<<Hausdorff>>>}} metric is
 :END:
 ***** Cloze
 Given a fixed prime $p$,
-{{c1::\[\forall q \in \mathbb{Q} : \exists (a,b,n) \in \mathbb{Z}^3 : \left[\,q = p^n \cdot \frac{a}{b} \land\, \gcd(a,p) = \gcd(b,p) = 1\,\right],\]}}
+{{c1::\[\forall q \in \mathbb{Q} \setminus \{0\} : \exists (a,b,n) \in \mathbb{Z}^3 : \left[\,q = p^n \cdot \frac{a}{b} \land\, \gcd(a,p) = \gcd(b,p) = 1\,\right]\]}}
 and {{c2::$\mathbb{Q}$}} is a normed vector space with
 
 $||q||_p$ := {{c3::$\begin{cases} p^{-n} & q \neq 0 \\ 0 & q = 0 \end{cases}$}}.
@@ -251,6 +251,12 @@ The $p\text{-adic}$ norm of $0$ is $0$ because
 extend Taylor series into negative powers
 a_{-k} p^{-k} + a_{-k+1} p^{-k+1} + \dots + a_0 + a_1 p + a_2 p^2 + \dots + a_n p^n + \dots
 where $a_i \in \{\0,\dots,p-1}$ are remainders mod p
+
+what are the 2-adic series expansions of 12 and 1/3?
+if 12 is a p-adic integer then its series begins at a positive index (in this case 2)
+but then 1/3 has infinitely many negative power terms??????????
+
+***** p-adic rationals
 \lim ||x||_p = ||a_n p^n + a_{n+1} p^{n+1} + \dots||_p \rightarrow 0
 this set of Laurent series is $\mathbb{Q}_p$, the p-adic rational numbers
 **** product formula for /p/-adic norms of rational numbers
@@ -271,5 +277,309 @@ engineer: 9 is prime
 :ANKI_NOTE_TYPE: Cloze
 :END:
 **** Cloze
-A set $X$ is {{c1::<<<convex>>>}} when
+A set $X$ is {{c1::<<<convex>>>}} iff
 {{c2::the line segment joining any two points in $X$ lies within $X$}}.
+* 2024-01-10 contraction mappings & product topologies
+$\alpha \in I$ henceforth refers to members of a possibly uncountable index set $I$.
+** arbitrary union of intersecting connected sets is connected
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Cloze
+:END:
+*** Cloze
+If $\{A_\alpha\}_{\alpha \in I}$ is a family of {{c1::connected}} sets
+such that $\forall \alpha,\alpha' \in I$ :
+{{c2::$A_\alpha \cap A_{\alpha'} \neq \emptyset$}},
+then {{c3::$\bigcup_{\alpha \in I} A_\alpha$}} is {{c4::connected}}.
+*** proof
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Basic
+:END:
+**** Front
+If $\{A_\alpha\}_{\alpha \in I}$ is a family of connected sets in $X$
+such that $\forall \alpha,\alpha' \in I$ :
+$A_\alpha \cap A_{\alpha'} \neq \emptyset$,
+prove that $\bigcup_{\alpha \in I} A_\alpha$ is connected.
+**** Back
+Suppose $A$ := $\bigcup_{\alpha \in I} A_\alpha$ is not connected.
+Let $U,U' \subseteq X$ be open and nonempty relative to $A$
+such that $U \cap U'$ = $\emptyset$ and $A$ = $U \cup U'$.
+Since $A_\alpha$ is connected, there is no $\alpha$ for which
+$A_\alpha \cap U \neq \emptyset \neq A_\alpha \cap U'$.
+But then $\exists \alpha,\alpha' \in I$ : $A_\alpha \subseteq U \land A_{\alpha'} \subseteq U'$,
+which contradicts that $A_\alpha \cap A_{\alpha'} \neq \emptyset$.
+** total disconnectedness
+*** definition
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Cloze
+:END:
+**** Cloze
+A topological space $X$ is {{c1::totally disconnected}}
+iff {{c2::every connected subset of $X$ is a singleton}}.
+***** totally disconnected subspaces of R
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Cloze
+:END:
+****** Cloze
+A {{c1::totally disconnected}} space in $\mathbb{R}$
+contains {{c3::only}} {{c2::points}} and {{c3::no}} {{c2::intervals}}.
+***** Cantor set
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Cloze
+:END:
+****** Cloze
+{{c1::The Cantor set}} is a totally disconnected space in $\mathbb{R}$.
+** contraction mappings
+*** definition
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Cloze
+:END:
+**** Cloze
+For a metric space $(X,d)$,
+$T$ : {{c1::$X$}} $\rightarrow$ {{c1::$X$}}
+is {{c2::a contraction mapping}} iff
+{{c3::$\exists c \in [0,1)$ : $\forall x,x' \in X$ :
+$d\bigl(T(x),T(x')\bigr) \le c \cdot d(x,x')$}}.
+*** contraction mappings are continuous
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Cloze
+:END:
+**** Cloze
+All contraction mappings are {{c1::continuous}}.
+*** orbit of a contraction mapping is a Cauchy sequence
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Cloze
+:END:
+**** Cloze
+(Orbit lemma.)
+For $x \in X$, the {{c1::orbit}} {{c2::$\left(T^n(x)\right)_{n \in \mathbb{N}}$}}
+of a {{c3::contraction mapping}} $T$ on $X$
+is {{c4::a Cauchy sequence}}.
+**** proof
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Basic
+:END:
+***** Front
+(Orbit lemma.)
+For $x \in X$, prove that the orbit
+$\left(T^n(x)\right)_{n \in \mathbb{N}}$
+of a contraction mapping $T$ on $X$
+is a Cauchy sequence.
+***** Back
+For $n \in \mathbb{Z}_+$,
+\[\begin{align*}
+d\left(T^n(x),T^{n+1}(x)\right)
+&< c \cdot d\left(T^{n-1}(x),T^n(x)\right) \\
+&< c^2 \cdot d\left(T^{n-2}(x),T^{n-1}(x)\right) \\
+\cdots &< c^n \cdot d\bigl(x,T(x)\bigr).
+\end{align*}\]
+Let $m \in \mathbb{Z}_+ \cap (n,\infty)$.
+By the triangle inequality,
+\[\begin{align*}
+d(T^n(x),T^m(x))
+&\le \sum_{k=n}^{m-1} d(T^k(x),T^{k+1}(x)) \\
+&\le d(x,T(x)) \sum_{k=n}^{m-1} c^k \\
+&= c^n \cdot d(x,T(x)) \sum_{k=0}^{m-n-1} c^k \\
+&\le \frac{c^n \cdot d(x,T(x))}{1-c}. \qedhere
+\end{align*}\]
+*** limit of an iterated contraction mapping is a fixed point
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Cloze
+:END:
+**** Cloze
+If $\lim_{n \rightarrow \infty} T^n(x) = z$,
+then $T(z)$ = {{c1::$z$}}.
+**** proof
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Basic
+:END:
+***** Front
+If $\lim_{n \rightarrow \infty} T^n(x) = z$,
+then $T(z)$ = $z$.
+***** Back
+$T^n(x) \rightarrow z$
+$\implies T(T^n(x)) \rightarrow T(z)$,
+so
+$T(T^n(x))$
+= $T^{n+1}(x)$
+$\rightarrow z$
+= $T(z)$.
+*** existence, uniqueness, and properties of a fixed point
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Cloze
+:END:
+**** Cloze
+({{c3::Contraction mapping theorem}}.)
+If $(X,d)$ is a {{c1::nonempty}} and {{c1::complete}} metric space
+and $T$ is {{c1::a contraction mapping on $X$}}, then
+{{c2::\[\exists ! z \in X : T(z) = z,\]}}
+where $z$ is called {{c2::the fixed point}},
+and
+{{c2::\[\forall x \in X : \lim_{n \rightarrow \infty} T^n(x) = z,\]}}
+where {{c2::$\forall n \in \mathbb{N}$ : $T^n(x)$ :=
+$\underset{n \text{ times} }{T(T(\cdots T}(x)))$}}.
+**** proof
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Basic
+:END:
+***** Front
+(Contraction mapping theorem.)
+If $(X,d)$ is a nonempty and complete metric space
+and $T$ is a contraction mapping on $X$, prove that
+\[\exists ! z \in X : T(z) = z,\]
+where $z$ is called the fixed point,
+and
+\[\forall x \in X : \lim_{n \rightarrow \infty} T^n(x) = z,\]
+where $\forall n \in \mathbb{N}$ : $T^n(x)$ :=
+$\underset{n \text{ times} }{T(T(\cdots T}(x)))$.
+***** Back
+For $x \in X$,
+$T(x)$ is Cauchy by the orbit lemma,
+and since $(X,d)$ is complete it converges to some point $z \in X$.
+Then $z$ is a fixed point of $T$, and it is its unique fixed point because.
+\[T(z) = z \land T(z') = z'
+\implies d(z,z') \le c \cdot d(z,z') \iff d(z,z') = 0.\]
+**** example
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Cloze
+:END:
+***** Cloze
+$x \mapsto \frac{x}{2}$ is a contraction mapping on $(\mathbb{R},|\cdot|)$
+with fixed point $z$ = {{c1::$0$}}.
+** iterated function systems and fixed point sets
+For a set $X$, let $\mathcal{K}(X)$ denote the set of compact subsets of $X$.
+*** COMMENT from PS2
+Define a metric space $(X,d_H)$
+such that $X$ is the set of compact subsets of $\mathbb{R}$
+and $d_H$ is the Hausdorff distance.
+Problem (PS2): $F$ : $(X,d_H) \rightarrow (X,d_H)$
+is a contracting map.
+*** fixed point set of a union of contraction mapping images of compact sets
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Cloze
+:END:
+**** Cloze
+For $m \in \mathbb{Z}_+$
+and contraction mappings
+$\left\{T_n : \mathbb{R}^d \rightarrow \mathbb{R}^d\right\}_{n \in [m]}$,
+let
+{{c1::\[F : \bigl(\mathcal{K}(\mathbb{R}^d),d_H\bigr) \rightarrow \bigl(\mathcal{K}(\mathbb{R}^d),d_H\bigr)\]}}
+such that
+{{c2::$\forall A \in \mathcal{K}(\mathbb{R}^d)$ : $F(A)$ = $\bigcup_{n \in [m]} T_n(A)$}}.
+Then
+{{c3::\[\exists ! A \in \mathcal{K}(\mathbb{R}^)d : F(A) = A.\]}}
+This set is the {{c3::fixed point set}} of $F$.
+**** proof
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Basic
+:END:
+***** Front
+For $m \in \mathbb{Z}_+$
+and contraction mappings
+$\left\{T_n : \mathbb{R}^d \rightarrow \mathbb{R}^d\right\}_{n \in [m]}$,
+let
+\[F : \bigl(\mathcal{K}(\mathbb{R}^d),d_H\bigr) \rightarrow \bigl(\mathcal{K}(\mathbb{R}^d),d_H\bigr)\]
+such that
+$F(A)$ = $\bigcup_{n \in [m]} T_n(A)$.
+Prove that
+\[\exists ! A \in \mathcal{K}(X) : F(A) = A.\]
+***** Back
+$F$ is a contraction mapping (PS2),
+and $\bigl(\mathcal{K}(X),d_H\bigr)$ is a complete metric (???).
+A unique fixed point set thus exists by the contraction mapping theorem.
+**** Cantor set
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Cloze
+:END:
+***** Cloze
+Let $T_0,T_1$ : $\mathbb{R} \rightarrow \mathbb{R}$ such that
+$T_0(x)$ := {{c1::$\frac{x}{3}$}} and
+$T_1(x)$ := {{c1::$\frac{x+2}{3}$}} and
+$F(A)$ : $\mathcal{K}(\mathbb{R}) \rightarrow \mathcal{K}(\mathbb{R})$ such that
+$F(A)$ := $T_0(A) \cup T_1(A)$.
+Then
+
+$F\bigl([0,1]\bigr)$ =
+{{c3::$T_0\bigl([0,1]\bigr) \cup T_1\bigl([0,1]\bigr)$ = $\left[0,\frac{1}{3}\right] \cup \left[\frac{2}{3},1\right]$}},
+
+and the {{c2::fixed point set}} of $F$ is the middle-thirds Cantor set.
+**** iterated function systems
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Cloze
+:END:
+***** Cloze
+If $T_0, T_1$ : $\mathbb{R}^d \rightarrow \mathbb{R}^d$
+are {{c2::contraction mappings}} and
+$F$ : $\bigl(\mathcal{K}(\mathbb{R}^d),d_H\bigr)$
+$\rightarrow$
+$\bigl(\mathcal{K}(\mathbb{R}^d),d_H\bigr)$
+such that
+$F(A)$ = $T_0(A) \cap T_1(A)$,
+then
+
+$F^2(A)$ = {{c1::$T_0\bigl(T_0(A)\bigr) \cup T_0\bigl(T_1(A)\bigr) \cup T_1\bigl(T_0(A)\bigr) \cup T_1\bigl(T_1(A)\bigr)$}}.
+** COMMENT product topology
+$\{X_\alpha\}_{\alpha \in I}$ topological spaces
+$X$ := $\prod_{\alpha \in I} X_\alpha$
+basis for a product topology on $X$, called cylinder sets
+*** basis for a topology
+collection of open sets such that
+any open set can be expressed as the possibly uncountable union of some of these open sets
+**** open intervals in R
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Cloze
+:END:
+***** Cloze
+{{c1::The open intervals}} form a basis for {{c2::the standard topology on $\mathbb{R}$}}.
+**** TODO open balls in a metric space
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Cloze
+:END:
+***** Cloze
+For a metric space $(X,d)$, the set of open balls centered at any point in $X$ with any positive radius forms a basis of a metric topology on $X$. (rewrite in set constructor notation)
+*** conditions for a basis
+1. $\forall x \in X$ : $\exists U \in \mathcal{B}$ : $x \in U$
+2. $x \in U \in \mathcal{B}$, $x \in U' \in \mathcal{B}$, then $\exists U'' \in \mathcal{B}$ : $X \in U'' \subseteq U \cap U'$
+**** example: open balls in a metric space (as above)
+proof by staring
+*** cylinder sets
+A cylinder set on ... is  a set
+$\prod_{\alpha \in I} A_\alpha$ where
+$\forall \alpha \in I$ : $A_\alpha$ is open in $X_\alpha$
+**** example
+$X$ := $\mathbb{R}^2$ = $\mathbb{R} \times \mathbb{R}$, then $(a,b) \times (a',b')$ is a cylinder set
+**** ???
+Consider the cylinder sets where $\forall_a \alpha \in I \setminus |I'|$ : $A_\alpha = X_\alpha$ for $|I'| \in \mathbb{N}$.
+These for a basis for the product topology on $\prod_{\alpha \in I} X_\alpha$.
+***** TODO projection map
+For a sequence $X$ indexed by a possibly uncountable set $I$, $\pi_\alpha(x)$ := $x_\alpha$.
+
+***** TODO fact
+Let $F$ : $Y \rightarrow \prod_{\alpha \in I} X_\alpha$.
+$F(y)$ = $(f_\alpha(y))_{\alpha \in I}$
+where $f_\alpha(y)$ := $\pi_\alpha(f(y))$
+and $f(y)$ = $(x_\alpha)_{\alpha \in I}$
+
+Then $F$ : $Y \rightarrow \prod_{\alpha \in I} X_\alpha$ is continuous
+iff $\forall \alpha \in I$ : $f_\alpha$ is continuous
+****** TODO proof
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Basic
+:END:
+******* Front
+
+******* Back
+If $f$ : $X \rightarrow Y$ for topological spaces $X$ and $Y$
+and $\mathcal{B}$ is a basis for the topology in $Y$,
+then $f$ is continuous iff $\forall U \in \mathcal{B}$ : $f^{-1(U)}$.
+
+Let $U \in \mathcal{B}$ be a cylinder set ins $\prod_{\alpha \in I} X_\alpha$.
+Let $I' \subseteq I$ be finite such that
+$U$ = $\prod_{\alpha \in I'} A_\alpha \times \prod_{\alpha \in I \setminus I'} X_\alpha$
+where $A_\alpha \neq X_\alpha$.
+
+$f(y) \in U \iff \forall \alpha \in I'$ : $f_\alpha(y) \in A_\alpha$
+
+Let $n$ : $|I'| \in \mathbb{N}$ and express $I'$ = $\{\alpha_0,\dots,\alpha_n\}$
+$U$ = $A_{\alpha_1} \times \cdots \times A_{\alpha_n} \times \prod_{\alpha \in I \setminus I'} X_\alpha$.
+So $f^{-1}(U)$ = $f_{\alpha_1}^{-1}(A_{\alpha_1}) \cap \cdots \cap f_{\alpha_n}^{-1}(A_{\alpha_n})$ where all of these are open in $Y$,
+and the finite intersection is open $Y$.
