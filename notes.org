@@ -13,6 +13,24 @@ This document's source code, located at https://github.com/brunefig/math455/blob
 can be converted into [[https://apps.ankiweb.net/][Anki]] flashcards with the [[https://github.com/louietan/anki-editor/][\texttt{anki-editor}]] package for [[https://www.gnu.org/software/emacs/][GNU Emacs]].
 Flashcard [[https://en.wikipedia.org/wiki/Cloze_test][cloze deletions]] are typeset in {{c1::magenta}}.
 
+* preliminaries
+** topological spaces
+*** definition
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Cloze
+:END:
+**** Cloze
+A {{c1::topological space}} $(X,\tau)$ is a {{c2::set}}
+$X$ endowed with a {{c2::topology}} $\tau$.
+*** topology
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Cloze
+:END:
+**** Cloze
+A {{c1::topology}} $\tau$ on a set $X$ is a collection of sets
+that contains {{c2::$\emptyset$ and $X$}}
+and is closed under {{c2::finite intersections and arbitrary unions}}.
+Membership in $\tau$ defines {{c3::an open set}} in {{c1::the topological space $(X,\tau)$}}.
 * 2024-01-05 topology & metric spaces
 ** connectedness
 *** connected space
@@ -20,23 +38,23 @@ Flashcard [[https://en.wikipedia.org/wiki/Cloze_test][cloze deletions]] are type
 :ANKI_NOTE_TYPE: Cloze
 :END:
 **** Cloze
-A topological space $X$ is {{c1::a <<<connected space>>>}} iff
-there are no {{c2::open}} sets $U,U' \in$
-{{c3::$\mathcal{P}(X) \setminus \{\emptyset\}$}} such that
-{{c3::$U \cap U'$ = $\emptyset$}}
-and {{c3::$X$ = $U \cup U'$}}.
+A topological space $(X,\tau)$ is {{c1::a <<<connected space>>>}} iff
+$\neg \exists U,U' \in$
+{{c2::$\tau \setminus \{\emptyset\}$}} :
+{{c2::$U \cap U'$ = $\emptyset$}}
+$\land$ {{c2::$X$ = $U \cup U'$}}.
 *** connected set
 :PROPERTIES:
 :ANKI_NOTE_TYPE: Cloze
 :END:
 **** Cloze
-For a topological space $X$,
+For a topological space $(X,\tau)$,
 $A \subseteq X$ is {{c1::a <<<connected>>> set}} iff
-there are no {{c2::open}} sets $U,U' \subseteq X$ such that
+$\neg \exists U,U' \in$ {{c2::$\tau$}} :
 {{c3::$A \cap U \neq \emptyset$}},
 {{c3::$A \cap U' \neq \emptyset$}},
 {{c3::$U \cap U'$ = $\emptyset$}},
-and {{c3::$A$ = $(U \cap A) \cup (U' \cap A)$}}.
+{{c3::$A$ = $(U \cap A) \cup (U' \cap A)$}}.
 *** path connectedness
 :PROPERTIES:
 :ANKI_NOTE_TYPE: Cloze
@@ -134,7 +152,7 @@ is not connected.
 **** Cloze
 Any normed vector space is a metric space with the induced metric
 
-$d(x,x')$ := {{c1::$||x-x'||$}}.
+$d(x,x')$ := {{c1::$\|x-x'\|$}}.
 *** l_p
 :PROPERTIES:
 :ANKI_NOTE_TYPE: Cloze
@@ -147,7 +165,7 @@ For $p \in$ {{c1::$(0,\infty)$}},
 
 is a normed vector space with
 
-$||x||_p$ :=
+$\|x\|_p$ :=
 {{c3::$\bigl(\sum_{n \in \mathbb{N} } |x_n|^p\bigr)^{1/p}$}}.
 **** 1/n sequence
 :PROPERTIES:
@@ -183,7 +201,7 @@ For $p \in$ {{c1::$[1,\infty)$}},
 
 is a normed vector space with
 
-$||f||_p$ :=
+$\|f\|_p$ :=
 {{c3::$\left(\int_a^b |f(x)|^p dx\right)^{1/p}$}}.
 *** symmetric difference metric
 :PROPERTIES:
@@ -216,7 +234,7 @@ Given a fixed prime $p$,
 {{c1::\[\forall q \in \mathbb{Q} \setminus \{0\} : \exists (a,b,n) \in \mathbb{Z}^3 : \left[\,q = p^n \cdot \frac{a}{b} \land\, \gcd(a,p) = \gcd(b,p) = 1\,\right]\]}}
 and {{c2::$\mathbb{Q}$}} is a normed vector space with
 
-$||q||_p$ := {{c3::$\begin{cases} p^{-n} & q \neq 0 \\ 0 & q = 0 \end{cases}$}}.
+$\|q\|_p$ := {{c3::$\begin{cases} p^{-n} & q \neq 0 \\ 0 & q = 0 \end{cases}$}}.
 ***** p = 2
 :PROPERTIES:
 :ANKI_NOTE_TYPE: Cloze
@@ -237,7 +255,7 @@ The 3-adic norm of $3^{-2024} \cdot \frac{8}{13}$ is
 :END:
 ****** Cloze
 The {{c3::$p\text{-adic}$}} norm
-$||q||_p$ is {{c1::small}}
+$\|q\|_p$ is {{c1::small}}
 if $q$ is {{c2::divisible by a large power of $p$}}.
 ***** intuition for the p-adic norm of zero
 :PROPERTIES:
@@ -257,7 +275,7 @@ if 12 is a p-adic integer then its series begins at a positive index (in this ca
 but then 1/3 has infinitely many negative power terms??????????
 
 ***** p-adic rationals
-\lim ||x||_p = ||a_n p^n + a_{n+1} p^{n+1} + \dots||_p \rightarrow 0
+\lim \|x\|_p = \|a_n p^n + a_{n+1} p^{n+1} + \dots\|_p \rightarrow 0
 this set of Laurent series is $\mathbb{Q}_p$, the p-adic rational numbers
 **** product formula for /p/-adic norms of rational numbers
 :PROPERTIES:
@@ -266,7 +284,7 @@ this set of Laurent series is $\mathbb{Q}_p$, the p-adic rational numbers
 ***** Cloze
 (/p/-adic product formula.)
 If $q \in$ {{c1::$\mathbb{Q} \setminus \{0\}$}}, then
-{{c2::$|q| \cdot \prod_{p \text{ prime} } ||q||_p$}} = {{c3::$1$}}.
+{{c2::$|q| \cdot \prod_{p \text{ prime} } \|q\|_p$}} = {{c3::$1$}}.
 **** COMMENT difference between mathematicians, physicists, and engineers
 math: 9 is a counterexample
 physicists: 9 is an experimental error
@@ -287,9 +305,10 @@ $\alpha \in I$ henceforth refers to members of a possibly uncountable index set 
 :END:
 *** Cloze
 If $\{A_\alpha\}_{\alpha \in I}$ is a family of {{c1::connected}} sets
+in a topological space $X$
 such that $\forall \alpha,\alpha' \in I$ :
-{{c2::$A_\alpha \cap A_{\alpha'} \neq \emptyset$}},
-then {{c3::$\bigcup_{\alpha \in I} A_\alpha$}} is {{c4::connected}}.
+{{c1::$A_\alpha \cap A_{\alpha'} \neq \emptyset$}},
+then {{c3::$\bigcup_{\alpha \in I} A_\alpha$}} is {{c2::connected}}.
 *** proof
 :PROPERTIES:
 :ANKI_NOTE_TYPE: Basic
@@ -451,12 +470,11 @@ is a contracting map.
 **** Cloze
 If $m \in \mathbb{Z}_+$,
 $\left\{T_n : \mathbb{R}^d \rightarrow \mathbb{R}^d\right\}_{n \in [m]}$
-are contraction mappings,
-and
-{{c1::\[F : \bigl(\mathcal{K}(\mathbb{R}^d),d_H\bigr) \rightarrow \bigl(\mathcal{K}(\mathbb{R}^d),d_H\bigr) : A \mapsto = \bigcup_{n \in [m]} T_n(A),\]}}
+are contraction mappings, and
+{{c1::\[F : \bigl(\mathcal{K}(\mathbb{R}^d),d_H\bigr) \rightarrow \bigl(\mathcal{K}(\mathbb{R}^d),d_H\bigr) : A \mapsto \bigcup_{n \in [m]} T_n(A),\]}}
 then
-{{c3::\[\exists ! A \in \mathcal{K}(\mathbb{R}^d) : F(A) = A.\]}}
-This set is the {{c3::<<<fixed point set>>>}} of $F$.
+{{c3::$\exists ! A \in \mathcal{K}(\mathbb{R}^d)$ : $F(A) = A$}}.
+This is the {{c3::<<<fixed point set>>>}} of $F$.
 **** proof
 :PROPERTIES:
 :ANKI_NOTE_TYPE: Basic
@@ -512,28 +530,29 @@ then the composition of $F$ with itself is
 :ANKI_NOTE_TYPE: Cloze
 :END:
 **** Cloze
-A {{c1::basis}} $\mathcal{B}$ for a topology $\mathcal{T}$
-is {{c2::a collection of open sets such that $\forall A \in \mathcal{T}$ : $\exists \{A_\alpha\}_{\alpha \in I} \subseteq \mathcal{B}$ : $A = \bigcup_{\alpha \in I} A_\alpha$}}.
+A {{c1::basis}} $\mathcal{B}$
+for a topology $\tau$
+is {{c2::a subset of $\tau$ such that $\forall A \in \tau$ : $\exists \{A_\alpha\}_{\alpha \in I} \subseteq \mathcal{B}$ : $A = \bigcup_{\alpha \in I} A_\alpha$}}.
 *** open intervals in R
 :PROPERTIES:
 :ANKI_NOTE_TYPE: Cloze
 :END:
 **** Cloze
-{{c1::The open intervals}} form a basis for {{c2::the standard topology on $\mathbb{R}$}}.
+{{c1::The open intervals}} form a basis for {{c2::the standard topology}} on $\mathbb{R}$.
 *** open balls in a metric space
 :PROPERTIES:
 :ANKI_NOTE_TYPE: Cloze
 :END:
 **** Cloze
-For a metric space $(X,d)$,
+For a metric space $X$,
 {{c1::$\bigl\{B(x,\epsilon) \bigm| x \in X, \epsilon > 0\bigr\}$}}
-forms a basis for {{c2::the open sets in $X$}}.
+is a basis for {{c2::the open sets in $X$}}.
 *** basis is an open cover
 :PROPERTIES:
 :ANKI_NOTE_TYPE: Cloze
 :END:
 **** Cloze
-If $\mathcal{B}$ is a basis for the topology in $X$, then
+If $\mathcal{B}$ is a basis for the topology on $X$, then
 $\forall x \in X$ :
 {{c1::$\exists U \in \mathcal{B}$ : $x \in U$}}.
 *** intersection of sets in a basis
@@ -541,18 +560,18 @@ $\forall x \in X$ :
 :ANKI_NOTE_TYPE: Cloze
 :END:
 **** Cloze
-If $\mathcal{B}$ is a basis for the topology $\mathcal{T}$ in $X$, then
+If $\mathcal{B}$ is a basis for the topology $\tau$ on $X$, then
 {{c1::$\bigl[U,U' \in \mathcal{B} \land x \in U \cap U'\bigr]$}}
 $\implies$
-{{c2::$\exists U'' \in \mathcal{T}$ : $x \in U'' \subseteq U \cap U'$}}.
+{{c2::$\exists U'' \in \tau$ : $x \in U'' \subseteq U \cap U'$}}.
 *** basis defines continuity of a function
 :PROPERTIES:
 :ANKI_NOTE_TYPE: Cloze
 :END:
 **** Cloze
-If $f$ : $X \rightarrow Y$ for {{c3::topological spaces}} $X$ and $Y$
-and $\mathcal{B}$ is a basis for the topology in $Y$,
-then {{c1::$f$ is continuous}} iff {{c2::$\forall U \in \mathcal{B}$ : $f^{-1}(U)$ is open in $X$}}.
+If $f$ : $X \rightarrow Y$ for {{c3::topological spaces}} $(X,\tau_X)$ and $(Y,\tau_Y)$
+and $\mathcal{B}$ is a basis for $\tau_Y$,
+then {{c1::$f$ is continuous}} iff {{c2::$\forall U \in \mathcal{B}$ : $f^{-1}(U) \in \tau_X$}}.
 ** product topologies
 *** cylinder sets
 :PROPERTIES:
@@ -560,13 +579,13 @@ then {{c1::$f$ is continuous}} iff {{c2::$\forall U \in \mathcal{B}$ : $f^{-1}(U
 :END:
 **** Cloze
 For {{c3::topological spaces}}
-$\bigl\{X_\alpha\bigr\}_{\alpha \in I}$,
+$\bigl\{(X_\alpha,\tau_\alpha)\bigr\}_{\alpha \in I}$,
 {{c1::$\prod_{\alpha \in I} A_\alpha$}}
 is {{c4::a cylinder set}} in
 $X$ :=
 {{c2::$\prod_{\alpha \in I} X_\alpha$}}
 iff
-{{c1::$\forall \alpha \in I$ : $A_\alpha$ is open in $X_\alpha$}}.
+{{c1::$\forall \alpha \in I$ : $A_\alpha \in \tau_\alpha$}}.
 **** open rectangles are cylinder sets in R^2
 :PROPERTIES:
 :ANKI_NOTE_TYPE: Cloze
@@ -593,8 +612,8 @@ These base cylinder sets form a basis for {{c4::the product topology on $X$}}.
 :ANKI_NOTE_TYPE: Cloze
 :END:
 ***** Cloze
-For a (possibly uncountable) sequence
-$x$ := $(x_\alpha)_{\alpha \in I}$, the function
+For a vector $x$ := $(x_\alpha)_{\alpha \in I}$
+in possibly uncountable dimensions, the function
 
 {{c3::$\pi_\alpha(x)$}} := {{c1::$x_\alpha$}}
 
@@ -616,9 +635,9 @@ iff {{c3::$\forall \alpha \in I$ : $f_\alpha$ is continuous}}.
 **** Cloze
 For topological spaces
 $\{X_\alpha\}_{\alpha \in I}$ let
-{{c1::\[f : Y \rightarrow \prod_{\alpha \in I} X_\alpha,\]}}
+{{c1::$f$ : $Y \rightarrow \prod_{\alpha \in I} X_\alpha$}},
 and for $\alpha \in I$ let
-{{c1::\[f_\alpha : Y \rightarrow X_\alpha : y \mapsto \pi_\alpha\bigl(f(y)\bigr).\]}}
+{{c1::$f_\alpha$ : $Y \rightarrow X_\alpha$ : $y \mapsto \pi_\alpha\bigl(f(y)\bigr)$}}.
 Then {{c2::$f$ is continuous}}
 iff {{c3::$\forall \alpha \in I$ : $f_\alpha$ is continuous}}.
 **** proof
@@ -628,10 +647,11 @@ iff {{c3::$\forall \alpha \in I$ : $f_\alpha$ is continuous}}.
 ***** Front
 For topological spaces
 $\{X_\alpha\}_{\alpha \in I}$, let
-\[f : Y \rightarrow \prod_{\alpha \in I} X_\alpha,\]
+$f$ : $Y \rightarrow \prod_{\alpha \in I} X_\alpha$,
 and for $\alpha \in I$ let
-\[f_\alpha : Y \rightarrow X_\alpha : y \mapsto \pi_\alpha\bigl(f(y)\bigr).\]
-Then $f$ is continuous
+$f_\alpha$ : $Y \rightarrow X_\alpha$ : $y \mapsto \pi_\alpha\bigl(f(y)\bigr)$.
+
+Prove that $f$ is continuous
 iff $\forall \alpha \in I$ : $f_\alpha$ is continuous.
 ***** Back
 Suppose $f$ is continuous.
@@ -642,7 +662,7 @@ in $\prod_{\alpha \in I} X_\alpha$.
 
 Suppose $\forall \alpha \in I$ : $f_\alpha$ is continuous.
 It suffices to verify that the preimage of $f$
-for base a cylinder set $U$
+for a base cylinder set $U$
 is open.
 Let $I' \subseteq I$ be a finite index subset for which
 \[U = \prod_{\alpha \in I'} A_\alpha \times \prod_{\alpha \in I \setminus I'} X_\alpha.\]
@@ -654,3 +674,211 @@ f^{-1}(U)
 \end{align*}\]
 is open in $Y$
 as the finite intersection of open sets in $Y$.
+* 2024-01-12 Hilbert spaces & Hausdorff spaces
+** inner product spaces
+*** compactness in l_p
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Cloze
+:END:
+**** Cloze
+The closed unit ball in $l_p$ is not {{c1::compact}}
+because {{c1::it contains $(x_n)_{n \in \mathbb{N} }$ where}}
+{{c1::\[\forall n,k \in \mathbb{N} : \pi_k(x_n) = \begin{cases} 1 &k = n \\ 0 &k \neq n \end{cases},\]}}
+{{c1::which has no convergent subsequence}}.
+*** definition
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Cloze
+:END:
+**** Cloze
+An {{c1::<<<inner product space>>>}} $V$ is a {{c2::normed vector space}}
+with {{c3::an inner product operation}} {{c4::$\langle v,v' \rangle$}} for $v,v' \in V$
+that defines its {{c3::norm}}
+
+{{c3::$\|v\|^2$}} = {{c4::$\langle v,v \rangle$}}.
+*** parallelogram law
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Cloze
+:END:
+**** Cloze
+({{c2::Parallelogram law}}.)
+{{c1::The norm}} in a vector space $V$ {{c1::is induced by an inner product}}
+iff
+{{c2::\[\forall v,v' \in V : \|v+v'\|^2 + \|v-v'\|^2 = 2\left(\|v\|^2 + \|v'\|^2\right)\]}}
+holds.
+**** Hanner's inequality
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Cloze
+:END:
+***** Cloze
+({{c3::Hanner's inequality}}.)
+For a measure space $X$,
+$p \in$ {{c1::$[1,\infty) \setminus \{2\}$}},
+and $f,g \in L^p(X)$,
+{{c2::\[\|f+g\|_p^p + \|f-g\|_p^p * \big( \|f\|_p + \|g\|_p \big)^p + \big| \|f\|_p-\|g\|_p \big|^p\]}}
+where $*$ := {{c1::$\begin{cases} \ge &p < 2 \\ \le &p > 2 \end{cases}$}}.
+If $p$ = {{c1::$2$}}, then this becomes {{c3::the parallelogram law}}.
+*** Hilbert spaces
+**** definition
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Cloze
+:END:
+***** Cloze
+A {{c2::<<<Hilbert space>>>}} is a {{c1::complete}} {{c3::inner product space}}.
+**** l_2
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Cloze
+:END:
+***** Cloze
+{{c1::$l_2$}} is a {{c3::Hilbert}} space with
+
+{{c2::$\bigl\langle (a_n)_{n \in \mathbb{N} }, (b_n)_{n \in \mathbb{N} } \bigr\rangle$}}
+= {{c3::$\sum_{n \in \mathbb{N} } |a_n \overline{b_n}|$}}.
+**** L^2
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Cloze
+:END:
+***** Cloze
+For a measure space $X$,
+{{c2::$L^2\bigl(X\bigr)$}} is a {{c3::Hilbert}} space with
+$\langle f,g \rangle$ := {{c1::$\int_X f(x) \overline{g(x)} dx$}}.
+***** Parseval's identity
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Cloze
+:END:
+****** Cloze
+({{c3::<<<Parseval>>>'s identity}}.)
+For $f \in L^2\bigl([0,2\pi]\bigr)$,
+{{c1::\[\|f\|_2^2 &= \int_0^{2\pi} |f(x)|^2 dx \\ &= 2\pi \sum_{n = -\infty}^\infty \left|\hat{f}(n)\right|^2 = \langle f,f \rangle\]}}
+where $\hat{f}(n)$ = {{c2::$\frac{1}{2\pi} \int_0^{2\pi} f(x) e^{-inx} dx$}}.
+**** compactness in a Hilbert space
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Cloze
+:END:
+***** Cloze
+(Consequence of {{c1::Riesz's lemma}}.)
+{{c1::The closed unit ball}} in a {{c1::Hilbert space}} $V$ is {{c1::compact}}
+iff {{c2::$V$ is finite-dimensional}}.
+** COMMENT compact sets
+\medskip
+*** continuous image of a compact set is compact
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Cloze
+:END:
+**** Cloze
+{{c2::Continuous}} functions map {{c1::compact sets}} to {{c2::compact sets}}.
+**** proof
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Basic
+:END:
+***** Front
+Prove that continuous functions map compact sets to compact sets.
+***** Back
+Let $f$ be continuous and $A$ a compact set in its domain.
+The preimages of sets in a open cover $U$ of $f(A)$
+form an open cover $U'$ of $A$.
+Then a finite subcover of $U'$ exists,
+and the images of sets in $U'$
+form a finite subcover of $U$.
+*** COMMENT Tychonoff's theorem
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Cloze
+:END:
+**** Cloze
+({{c3::<<<Tychonoff>>>}}.)
+If {{c1::$\forall \alpha \in I$ : $X_\alpha$ is compact}},
+then {{c2::$\prod_{\alpha \in I} X_\alpha$}} is {{c3::compact in the product topology}}.
+**** TODO proof
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Basic
+:END:
+***** Front
+(Tychonoff.)
+If $\forall \alpha \in I$ : $X_\alpha$ is compact,
+prove that $\prod_{\alpha \in I} X_\alpha$ is compact in the product topology.
+***** Back
+mycourses
+** Hausdorff spaces
+*** definition
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Cloze
+:END:
+**** Cloze
+A topological space $(X,\tau)$
+{{c1::a <<<Hausdorff space>>>}}
+iff {{c2::$\forall x \neq x' \in X$ : $\exists U, U' \in \tau$ : $\bigl[U \cap U'$ = $\emptyset \land (x,x') \in U \times U'\bigr]$}}.
+*** metric spaces are Hausdorff spaces
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Cloze
+:END:
+**** Cloze
+All {{c1::metric spaces}} are Hausdorff spaces.
+*** closedness of singletons
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Cloze
+:END:
+**** Cloze
+Singletons in {{c2::a Hausdorff space}} $X$
+with topology $\tau$
+are {{c1::closed}}.
+**** proof
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Basic
+:END:
+***** Front
+Prove that singletons in a Hausdorff space $X$
+with topology $\tau$
+are closed.
+***** Back
+Let $x' \in X \implies$. Then
+\[\forall x \in X :
+\exists U_x \in \tau :
+\bigl[x \in U_x \land x' \notin U_x\bigr]
+\implies X \setminus \{x'\}
+= \bigcup_{x' \in X \setminus \{x'\}} U_x \in \tau.\]
+*** trivial topology
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Cloze
+:END:
+**** Cloze
+$\tau$ := {{c1::$\{\emptyset,X\}$}} is {{c2::the trivial topology on $X$}}.
+**** trivial topological are not Hausdorff spaces
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Cloze
+:END:
+***** Cloze
+If $\tau$ is {{c1::the trivial topology}} and
+{{c2::$|X| > 1$}},
+then $(X,\tau)$ is {{c3::not a Hausdorff space}}.
+*** subspace topology
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Cloze
+:END:
+**** Cloze
+The {{c1::subspace topology}} on a subspace $Y$ of a topological space $(X,\tau)$
+is $\tau_Y$ := {{c2::$\bigl\{U \cap Y \bigm| U \in \tau\bigr\}$}}.
+**** subspaces of Hausdorff spaces are Hausdorff spaces
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Cloze
+:END:
+***** Cloze
+A subspace of {{c3::a Hausdorff space}} is {{c2::a Hausdorff space}} under {{c1::the subspace topology}}.
+*** COMMENT product of Hausdorff spaces is a Hausdorff space
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Cloze
+:END:
+**** Cloze
+For Hausdorff spaces $X$ and $Y$,
+$X \times Y$ is {{c1::a Hausdorff space}}.
+**** proof
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Basic
+:END:
+***** Front
+For Hausdorff spaces $(X,\tau)$ and $(X',\tau')$,
+prove that $X \times X'$ with the product topology
+is a Hausdorff space.
+***** Back
+Let $\mathcal{B}$ be the cylinder set basis for the product topology
+and let $(x,y) \neq (x',y') \in X \times Y$, assuming wlog that
+$x \neq x'$.
+Then $\exists U,U' \in \tau$.
