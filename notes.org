@@ -755,10 +755,10 @@ where $\hat{f}(n)$ = {{c2::$\frac{1}{2\pi} \int_0^{2\pi} f(x) e^{-inx} dx$}}.
 :ANKI_NOTE_TYPE: Cloze
 :END:
 ***** Cloze
-(Consequence of {{c1::Riesz's lemma}}.)
+(Consequence of {{c3::Riesz's lemma}}.)
 {{c1::The closed unit ball}} in a {{c1::Hilbert space}} $V$ is {{c1::compact}}
 iff {{c2::$V$ is finite-dimensional}}.
-** COMMENT compact sets
+** compact sets & continuity
 \medskip
 *** continuous image of a compact set is compact
 :PROPERTIES:
@@ -774,12 +774,12 @@ iff {{c2::$V$ is finite-dimensional}}.
 Prove that continuous functions map compact sets to compact sets.
 ***** Back
 Let $f$ be continuous and $A$ a compact set in its domain.
-The preimages of sets in a open cover $U$ of $f(A)$
+The preimages of an open cover $U$ of $f(A)$
 form an open cover $U'$ of $A$.
 Then a finite subcover of $U'$ exists,
 and the images of sets in $U'$
 form a finite subcover of $U$.
-*** COMMENT Tychonoff's theorem
+*** Tychonoff's theorem
 :PROPERTIES:
 :ANKI_NOTE_TYPE: Cloze
 :END:
@@ -787,7 +787,7 @@ form a finite subcover of $U$.
 ({{c3::<<<Tychonoff>>>}}.)
 If {{c1::$\forall \alpha \in I$ : $X_\alpha$ is compact}},
 then {{c2::$\prod_{\alpha \in I} X_\alpha$}} is {{c3::compact in the product topology}}.
-**** TODO proof
+**** COMMENT TODO
 :PROPERTIES:
 :ANKI_NOTE_TYPE: Basic
 :END:
@@ -797,6 +797,49 @@ If $\forall \alpha \in I$ : $X_\alpha$ is compact,
 prove that $\prod_{\alpha \in I} X_\alpha$ is compact in the product topology.
 ***** Back
 mycourses
+*** homeomorphism
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Cloze
+:END:
+**** Cloze
+For topological spaces $X$ and $Y$,
+a {{c2::bijection}} $f$ : $X \rightarrow Y$
+is {{c1::a homeomorphism}} iff
+{{c2::$f$ and $f^{-1}$ are both continuous}}.
+*** distance from a set is continuous
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Cloze
+:END:
+**** Cloze
+For a subset $A$ of a metric space $(X,d)$ and $x \in X$,
+$d(x,A) := \inf_{x' \in A} d(x,x')$
+is {{c1::continuous}}.
+**** proof
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Basic
+:END:
+***** Front
+For a subset $A$ of a metric space $(X,d)$ and $x \in X$,
+prove that
+\[d(x,A) := \inf_{x' \in A} d(x,x')\]
+is continuous.
+***** Back
+Let $\epsilon,\delta > 0$.
+Then
+$\exists a \in A$ :
+$d(x,A) +\delta$,
+so for $x' \in B(x,\epsilon)$
+\[\begin{align*}
+d(x',A)
+&\le d(x',a) \\
+&\le d(x,a) + d(x,x') \\
+&< d(x,A) + \delta + \epsilon.
+\end{align*}\]
+Taking the limit as $\delta \rightarrow 0$ gives
+$d(x',A) \le d(x,A) + \epsilon$.
+By parallel reasoning,
+$d(x,A) \le d(x',A) + \epsilon$,
+hence $|d(x,A) - d(x',A)| \le \epsilon$.
 ** Hausdorff spaces
 *** definition
 :PROPERTIES:
@@ -812,7 +855,7 @@ iff {{c2::$\forall x \neq x' \in X$ : $\exists U, U' \in \tau$ : $\bigl[U \cap U
 :END:
 **** Cloze
 All {{c1::metric spaces}} are Hausdorff spaces.
-*** closedness of singletons
+*** singletons are closed sets
 :PROPERTIES:
 :ANKI_NOTE_TYPE: Cloze
 :END:
@@ -861,8 +904,8 @@ is $\tau_Y$ := {{c2::$\bigl\{U \cap Y \bigm| U \in \tau\bigr\}$}}.
 :ANKI_NOTE_TYPE: Cloze
 :END:
 ***** Cloze
-A subspace of {{c3::a Hausdorff space}} is {{c2::a Hausdorff space}} under {{c1::the subspace topology}}.
-*** COMMENT product of Hausdorff spaces is a Hausdorff space
+Any subspace of {{c3::a Hausdorff space}} is {{c2::a Hausdorff space}} under {{c1::the subspace topology}}.
+*** product of Hausdorff spaces is a Hausdorff space
 :PROPERTIES:
 :ANKI_NOTE_TYPE: Cloze
 :END:
@@ -879,6 +922,191 @@ prove that $X \times X'$ with the product topology
 is a Hausdorff space.
 ***** Back
 Let $\mathcal{B}$ be the cylinder set basis for the product topology
-and let $(x,y) \neq (x',y') \in X \times Y$, assuming wlog that
-$x \neq x'$.
-Then $\exists U,U' \in \tau$.
+and let $(x_0,x'_0) \neq (x_1,x'_1) \in X \times Y$, assuming wlog that
+$x_0 \neq x_1$. Then $\exists U,U' \in \tau$ :
+$\bigl[U \cap U'$ = $\emptyset \land (x_0,x_1) \in U \times U'\bigr]$,
+so $U \times X$ and $U' \times X'$ are disjoint open sets that contain
+$(x_0,x'_0)$ and $(x_1,x'_1)$ respectively.
+*** compact subspace of a Hausdorff space is closed
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Cloze
+:END:
+**** Cloze
+Any {{c1::compact}} subspace of a Hausdorff space is {{c2::closed}}.
+**** proof
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Basic
+:END:
+***** Front
+Prove that any compact subspace
+of a Hausdorff space is closed.
+***** Back
+Let $(X,\tau)$ be a Hausdorff space,
+$A \subseteq X$ a compact subset,
+and $x' \in X \setminus A$.
+For $x \in A$, let $U_x, U'_x \in \tau$ such that
+$U_x \cap U'_x$ = $\emptyset$,
+$x \in U_x$, and $x' \in U'_x$.
+
+$\{U_x\}_{x \in A}$ is an open cover of $A$, so let
+$\{x_n\}_{n \in [m]} \subseteq A$
+such that
+$\{U_{x_n}\}_{n \in [m]}$
+covers $A$.
+It follows that $x' \in \bigcap_{n \in [m]} U'_{x_n} \subseteq X \setminus A$ is open
+and disjoint to $\bigcap_{n \in [m]} U_{x_n}$.
+*** continuous bijections from a compact space to a Hausdorff space are homeomorphism
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Cloze
+:END:
+**** Cloze
+A {{c1::continuous bijection}} $f$ : $X \rightarrow Y$ is {{c3::a homeomorphism}}
+if $X$ is {{c2::compact}} and
+$Y$ is {{c2::a Hausdorff space}}.
+**** proof
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Basic
+:END:
+***** Front
+Prove that a continuous bijection
+$f$ : $X \rightarrow Y$ is a homeomorphism
+if $X$ is compact and
+$Y$ is a Hausdorff space.
+***** Back
+Let $A \subseteq X$ be closed.
+Then $A$ is compact, so
+$\left(f^{-1}\right)^{-1}(A) = f(A)$
+is closed as a compact subset of a Hausdorff space.
+It follows that $f^{-1}$ is continuous.
+*** normal spaces
+**** definition
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Cloze
+:END:
+***** Cloze
+A {{c3::Hausdorff space}} $(X,\tau)$ is {{c2::a normal space}} iff
+{{c1::\[\exists U,U' \in \tau : \bigl[U \cap U \neq \emptyset \land A \subseteq U \land A' \subseteq U'\bigr]\]}}
+for any {{c1::disjoint closed sets $A,A' \subseteq X$}}.
+**** compact Hausdorff spaces are normal spaces
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Cloze
+:END:
+***** Cloze
+All {{c2::compact}} Hausdorff space are {{c1::normal spaces}}.
+***** proof
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Basic
+:END:
+****** Front
+Prove that all compact Hausdorff spaces
+are normal spaces.
+****** Back
+Let $(X,\tau)$ be a compact Hausdorff space and
+$A,A' \subseteq X$ closed sets with
+$A \cap A'$ = $\emptyset$.
+For $x \in A$, let $U_x, U'_x \in \tau$ such that
+$U_x \cap U'_x$ = $\emptyset$,
+$x \in U_x$, and $A' \subseteq U'_x$.
+
+$\{U_x\}_{x \in A}$ is an open cover of $A$,
+so since $A$ is compact as the closed subset of a compact set
+let
+$\{x_n\}_{n \in [m]} \subseteq A$
+such that
+$\{U_{x_n}\}_{n \in [m]}$
+covers $A$.
+It follows that $\bigcup_{n \in [m]} U_{x_n}$ and
+$\bigcap_{n \in [m]} U'_{x_n} \supseteq A'$
+are open and disjoint.
+**** metric spaces are normal spaces
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Cloze
+:END:
+***** Cloze
+All {{c1::metric spaces}} are normal spaces.
+***** proof
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Basic
+:END:
+****** Front
+Prove that all metric spaces are normal spaces.
+****** Back
+Let $A,A' \subseteq X$ be closed.
+Then
+\[U_A := \bigl\{x \mid d(x,A) < d(x,A')\bigr\},
+\qquad U_A' := \bigl\{x \mid d(x,A') < d(x,A)\bigr\},
+\qquad\]
+are disjoint,
+and they are respective open neighborhoods of $A$ and $A'$ because
+\[U_A = f^{-1}\bigl((-\infty,0)\bigr),
+\qquad U_A' = f^{-1}\bigl((0,\infty)\bigr)\]
+where $f$ : $x \mapsto d(x,A) - d(x,A')$ is continuous as the difference between continuous functions.
+** Lebesgue number
+*** definition
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Cloze
+:END:
+**** Cloze
+A {{c1::Lebesgue number}} of
+{{c2::an open cover $\{A_\alpha\}_{\alpha \in I}$ of $X$}}
+is {{c3::$\epsilon > 0$ such that $\forall x \in X$ : $\exists \alpha \in I$ : $B(x,\epsilon) \subseteq A_\alpha$}}.
+*** open covers of compact metric spaces have a Lebesgue number
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Cloze
+:END:
+**** Cloze
+Any open cover of {{c1::a compact metric space}} has {{c2::a Lebesgue number}}.
+**** TODO proof
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Basic
+:END:
+***** Front
+Prove that any open cover of a compact metric space has a Lebesgue number.
+***** Back
+Let $X$ be a compact metric space
+and $\{U_\alpha\}_{\alpha \in I}$ an open cover of $X$
+with finite subcover $\{U_{\alpha_n}\}_{n \in [m]}$.
+For $n \in [m]$ and $x \in X$, let
+\[d_n(x) := d(x, X \setminus U_n),\]
+noting that $B(x,\epsilon) \subseteq U_n$
+$\iff d_n(x) \ge \epsilon$
+and that $\exists n \in [m] : x \in U_n \implies d_n(x) > 0$.
+
+Let $f(x)$ := $\max_{n \in [m]} d_n(x)$,
+which is continuous as the maximum of continuous functions.
+Then $f(X) \subseteq (0,\infty)$
+is compact hence closed and bounded.
+It follows that
+$\exists \delta > 0$ : $f(X) \subseteq [\delta,\infty)$,
+and
+$\delta$ is a Lebesgue number for $\{U_\alpha\}_{\alpha \in I}$.
+*** continuous functions on compact metric spaces are uniformly continuous
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Cloze
+:END:
+**** Cloze
+If $f$ : $X \rightarrow Y$ is {{c1::continuous}},
+$X$ and $Y$ are metric spaces,
+and $X$ is {{c1::compact}}, then
+$f$ is {{c2::uniformly continuous}}.
+**** proof
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Basic
+:END:
+***** Front
+If $f$ : $X \rightarrow Y$ is continuous,
+$X$ and $Y$ are metric spaces,
+and $X$ is compact, prove that
+$f$ is uniformly continuous.
+***** Back
+For $\epsilon > 0$,
+let $\delta$ be a Lebesgue number for
+$\bigl\{f^{-1}\bigl(B(y, \epsilon)\bigr)\bigr\}_{y \in Y}$.
+Then $\forall x \in X$ :
+$\exists y \in Y : f\bigl(B(x,\delta)\bigr) = B(y, \epsilon)$,
+so for $x' \in B(x,\delta)$
+\[\begin{align*}
+d\bigl(f(x),f(x')\bigr) &\le \\
+d\bigl(f(x),y\bigr) + d\bigl(f(x'),y\bigr)
+&< 2 \epsilon.
+\end{align*}\]
