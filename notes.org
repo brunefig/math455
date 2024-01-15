@@ -691,10 +691,10 @@ because {{c1::it contains $(x_n)_{n \in \mathbb{N} }$ where}}
 :END:
 **** Cloze
 An {{c1::<<<inner product space>>>}} $V$ is a {{c2::normed vector space}}
-with {{c3::an inner product operation}} {{c4::$\langle v,v' \rangle$}} for $v,v' \in V$
-that defines its {{c3::norm}}
+with {{c1::an inner product operation}} {{c4::$\langle v,v' \rangle$}} for $v,v' \in V$
+that induces its {{c3::norm}}
 
-{{c3::$\|v\|^2$}} = {{c4::$\langle v,v \rangle$}}.
+{{c3::$\|v\|^2$}} =: {{c4::$\langle v,v \rangle$}}.
 *** parallelogram law
 :PROPERTIES:
 :ANKI_NOTE_TYPE: Cloze
@@ -748,7 +748,7 @@ $\langle f,g \rangle$ := {{c1::$\int_X f(x) \overline{g(x)} dx$}}.
 ****** Cloze
 ({{c3::<<<Parseval>>>'s identity}}.)
 For $f \in L^2\bigl([0,2\pi]\bigr)$,
-{{c1::\[\|f\|_2^2 &= \int_0^{2\pi} |f(x)|^2 dx \\ &= 2\pi \sum_{n = -\infty}^\infty \left|\hat{f}(n)\right|^2 = \langle f,f \rangle\]}}
+{{c1::\[\begin{align*}\|f\|_2^2 &= \int_0^{2\pi} |f(x)|^2 dx \\ &= 2\pi \sum_{n = -\infty}^\infty \left|\hat{f}(n)\right|^2 = \langle f,f \rangle\end{align*}\]}}
 where $\hat{f}(n)$ = {{c2::$\frac{1}{2\pi} \int_0^{2\pi} f(x) e^{-inx} dx$}}.
 **** compactness in a Hilbert space
 :PROPERTIES:
@@ -756,7 +756,7 @@ where $\hat{f}(n)$ = {{c2::$\frac{1}{2\pi} \int_0^{2\pi} f(x) e^{-inx} dx$}}.
 :END:
 ***** Cloze
 (Consequence of {{c3::Riesz's lemma}}.)
-{{c1::The closed unit ball}} in a {{c1::Hilbert space}} $V$ is {{c1::compact}}
+{{c1::The closed unit ball}} in a {{c4::Hilbert space}} $V$ is {{c1::compact}}
 iff {{c2::$V$ is finite-dimensional}}.
 ** compact sets & continuity
 \medskip
@@ -765,7 +765,7 @@ iff {{c2::$V$ is finite-dimensional}}.
 :ANKI_NOTE_TYPE: Cloze
 :END:
 **** Cloze
-{{c2::Continuous}} functions map {{c1::compact sets}} to {{c2::compact sets}}.
+{{c2::Continuous}} functions map {{c1::compact sets}} to {{c3::compact sets}}.
 **** proof
 :PROPERTIES:
 :ANKI_NOTE_TYPE: Basic
@@ -846,7 +846,7 @@ hence $|d(x,A) - d(x',A)| \le \epsilon$.
 :ANKI_NOTE_TYPE: Cloze
 :END:
 **** Cloze
-A topological space $(X,\tau)$
+A topological space $(X,\tau)$ is
 {{c1::a <<<Hausdorff space>>>}}
 iff {{c2::$\forall x \neq x' \in X$ : $\exists U, U' \in \tau$ : $\bigl[U \cap U'$ = $\emptyset \land (x,x') \in U \times U'\bigr]$}}.
 *** metric spaces are Hausdorff spaces
@@ -868,11 +868,9 @@ are {{c1::closed}}.
 :ANKI_NOTE_TYPE: Basic
 :END:
 ***** Front
-Prove that singletons in a Hausdorff space $X$
-with topology $\tau$
-are closed.
+Prove that singletons in a Hausdorff space $(X,\tau)$ are closed.
 ***** Back
-Let $x' \in X \implies$. Then
+Let $x' \in X$. Then
 \[\forall x \in X :
 \exists U_x \in \tau :
 \bigl[x \in U_x \land x' \notin U_x\bigr]
@@ -910,8 +908,9 @@ Any subspace of {{c3::a Hausdorff space}} is {{c2::a Hausdorff space}} under {{c
 :ANKI_NOTE_TYPE: Cloze
 :END:
 **** Cloze
-For Hausdorff spaces $X$ and $Y$,
-$X \times Y$ is {{c1::a Hausdorff space}}.
+For Hausdorff spaces $(X,\tau)$ and $(X',\tau')$,
+$X \times X'$ under the product topology
+is {{c1::a Hausdorff space}}.
 **** proof
 :PROPERTIES:
 :ANKI_NOTE_TYPE: Basic
@@ -923,9 +922,10 @@ is a Hausdorff space.
 ***** Back
 Let $\mathcal{B}$ be the cylinder set basis for the product topology
 and let $(x_0,x'_0) \neq (x_1,x'_1) \in X \times Y$, assuming wlog that
-$x_0 \neq x_1$. Then $\exists U,U' \in \tau$ :
-$\bigl[U \cap U'$ = $\emptyset \land (x_0,x_1) \in U \times U'\bigr]$,
-so $U \times X$ and $U' \times X'$ are disjoint open sets that contain
+$x_0 \neq x_1$. Then
+\[\exists U_0,U_1 \in \tau :
+\bigl[U_0 \cap U_1 = \emptyset \land (x_0,x_1) \in U_0 \times U_1\bigr],\]
+so $U_0 \times X'$ and $U_1 \times X'$ are disjoint open sets that contain
 $(x_0,x'_0)$ and $(x_1,x'_1)$ respectively.
 *** compact subspace of a Hausdorff space is closed
 :PROPERTIES:
@@ -946,15 +946,16 @@ $A \subseteq X$ a compact subset,
 and $x' \in X \setminus A$.
 For $x \in A$, let $U_x, U'_x \in \tau$ such that
 $U_x \cap U'_x$ = $\emptyset$,
-$x \in U_x$, and $x' \in U'_x$.
+and $(x,x') \in U_x \times U'_x$.
 
-$\{U_x\}_{x \in A}$ is an open cover of $A$, so let
+Since $\{U_x\}_{x \in A}$ is an open cover of $A$, let
 $\{x_n\}_{n \in [m]} \subseteq A$
 such that
 $\{U_{x_n}\}_{n \in [m]}$
 covers $A$.
-It follows that $x' \in \bigcap_{n \in [m]} U'_{x_n} \subseteq X \setminus A$ is open
-and disjoint to $\bigcap_{n \in [m]} U_{x_n}$.
+Then $x' \in \bigcap_{n \in [m]} U'_{x_n} \subseteq X \setminus A$ is open
+and disjoint to $\bigcup_{n \in [m]} U_{x_n}$.
+Thus $X \setminus A$ is open.
 *** continuous bijections from a compact space to a Hausdorff space are homeomorphism
 :PROPERTIES:
 :ANKI_NOTE_TYPE: Cloze
@@ -1008,8 +1009,8 @@ For $x \in A$, let $U_x, U'_x \in \tau$ such that
 $U_x \cap U'_x$ = $\emptyset$,
 $x \in U_x$, and $A' \subseteq U'_x$.
 
-$\{U_x\}_{x \in A}$ is an open cover of $A$,
-so since $A$ is compact as the closed subset of a compact set
+Since $\{U_x\}_{x \in A}$ is an open cover of $A$
+and $A$ is compact as the closed subset of a compact set,
 let
 $\{x_n\}_{n \in [m]} \subseteq A$
 such that
@@ -1031,13 +1032,13 @@ All {{c1::metric spaces}} are normal spaces.
 ****** Front
 Prove that all metric spaces are normal spaces.
 ****** Back
-Let $A,A' \subseteq X$ be closed.
+Let $A,A' \subseteq X$ be disjoint and closed.
 Then
 \[U_A := \bigl\{x \mid d(x,A) < d(x,A')\bigr\},
 \qquad U_A' := \bigl\{x \mid d(x,A') < d(x,A)\bigr\},
 \qquad\]
 are disjoint,
-and they are respective open neighborhoods of $A$ and $A'$ because
+and they are respective open supersets of $A$ and $A'$ because
 \[U_A = f^{-1}\bigl((-\infty,0)\bigr),
 \qquad U_A' = f^{-1}\bigl((0,\infty)\bigr)\]
 where $f$ : $x \mapsto d(x,A) - d(x,A')$ is continuous as the difference between continuous functions.
@@ -1056,7 +1057,7 @@ is {{c3::$\epsilon > 0$ such that $\forall x \in X$ : $\exists \alpha \in I$ : $
 :END:
 **** Cloze
 Any open cover of {{c1::a compact metric space}} has {{c2::a Lebesgue number}}.
-**** TODO proof
+**** proof
 :PROPERTIES:
 :ANKI_NOTE_TYPE: Basic
 :END:
