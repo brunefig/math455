@@ -748,8 +748,9 @@ $\langle f,g \rangle$ := {{c1::$\int_X f(x) \overline{g(x)} dx$}}.
 ****** Cloze
 ({{c3::<<<Parseval>>>'s identity}}.)
 For $f \in L^2\bigl([0,2\pi]\bigr)$,
-{{c1::\[\begin{align*}\|f\|_2^2 &= \int_0^{2\pi} |f(x)|^2 dx \\ &= 2\pi \sum_{n = -\infty}^\infty \left|\hat{f}(n)\right|^2 = \langle f,f \rangle\end{align*}\]}}
-where $\hat{f}(n)$ = {{c2::$\frac{1}{2\pi} \int_0^{2\pi} f(x) e^{-inx} dx$}}.
+which has a basis {{c4::$\{e^{inx}\}_{n \in \mathbb{Z} }$}},
+{{c1::\[\begin{align*}\|f\|_2^2 &= \int_0^{2\pi} |f(x)|^2 dx \\ &= 2\pi \sum_{n \in \mathbb{Z} } \left|\hat{f}(n)\right|^2 = \langle f,f \rangle\end{align*}\]}}
+where $\hat{f}(n)$ = {{c2::$\langle f, e^{inx} \rangle$}} = {{c2::$\frac{1}{2\pi} \int_0^{2\pi} f(x) e^{-inx} dx$}}.
 **** compactness in a Hilbert space
 :PROPERTIES:
 :ANKI_NOTE_TYPE: Cloze
@@ -787,16 +788,6 @@ form a finite subcover of $U$.
 ({{c3::<<<Tychonoff>>>}}.)
 If {{c1::$\forall \alpha \in I$ : $X_\alpha$ is compact}},
 then {{c2::$\prod_{\alpha \in I} X_\alpha$}} is {{c3::compact in the product topology}}.
-**** COMMENT TODO
-:PROPERTIES:
-:ANKI_NOTE_TYPE: Basic
-:END:
-***** Front
-(Tychonoff.)
-If $\forall \alpha \in I$ : $X_\alpha$ is compact,
-prove that $\prod_{\alpha \in I} X_\alpha$ is compact in the product topology.
-***** Back
-mycourses
 *** homeomorphism
 :PROPERTIES:
 :ANKI_NOTE_TYPE: Cloze
@@ -945,7 +936,7 @@ Let $(X,\tau)$ be a Hausdorff space,
 $A \subseteq X$ a compact subset,
 and $x' \in X \setminus A$.
 For $x \in A$, let $U_x, U'_x \in \tau$ such that
-$U_x \cap U'_x$ = $\emptyset$,
+$U_x \cap U'_x$ = $\emptyset$
 and $(x,x') \in U_x \times U'_x$.
 
 Since $\{U_x\}_{x \in A}$ is an open cover of $A$, let
@@ -953,8 +944,8 @@ $\{x_n\}_{n \in [m]} \subseteq A$
 such that
 $\{U_{x_n}\}_{n \in [m]}$
 covers $A$.
-Then $x' \in \bigcap_{n \in [m]} U'_{x_n} \subseteq X \setminus A$ is open
-and disjoint to $\bigcup_{n \in [m]} U_{x_n}$.
+Then $x' \in \bigcap_{n \in [m]} U'_{x_n} \subseteq X \setminus A$,
+and this intersection is open and disjoint to $\bigcup_{n \in [m]} U_{x_n}$.
 Thus $X \setminus A$ is open.
 *** continuous bijections from a compact space to a Hausdorff space are homeomorphism
 :PROPERTIES:
@@ -1039,6 +1030,7 @@ Then
 \qquad\]
 are disjoint,
 and they are respective open supersets of $A$ and $A'$ because
+$x \in A \implies d(x,A) = 0 < d(x,A')$ (and vice versa) and
 \[U_A = f^{-1}\bigl((-\infty,0)\bigr),
 \qquad U_A' = f^{-1}\bigl((0,\infty)\bigr)\]
 where $f$ : $x \mapsto d(x,A) - d(x,A')$ is continuous as the difference between continuous functions.
@@ -1078,9 +1070,8 @@ which is continuous as the maximum of continuous functions.
 Then $f(X) \subseteq (0,\infty)$
 is compact hence closed and bounded.
 It follows that
-$\exists \delta > 0$ : $f(X) \subseteq [\delta,\infty)$,
-and
-$\delta$ is a Lebesgue number for $\{U_\alpha\}_{\alpha \in I}$.
+$\exists \delta > 0$ : $f(X) \subseteq [\delta,\infty)$
+and $\delta$ is a Lebesgue number for $\{U_\alpha\}_{\alpha \in I}$.
 *** continuous functions on compact metric spaces are uniformly continuous
 :PROPERTIES:
 :ANKI_NOTE_TYPE: Cloze
@@ -1111,3 +1102,171 @@ d\bigl(f(x),f(x')\bigr) &\le \\
 d\bigl(f(x),y\bigr) + d\bigl(f(x'),y\bigr)
 &< 2 \epsilon.
 \end{align*}\]
+* 2024-01-17 product spaces & separable spaces
+** metrizability
+*** definition
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Cloze
+:END:
+**** Cloze
+A topological space $(X,\tau)$ is {{c1::metrizable}} iff
+{{c2::there exists a metric $d$ on $X$ that induces $\tau$}}.
+In other words, {{c2::the set of open balls with respect to $d$ is a basis for $\tau$}}.
+*** metrizable spaces are normal
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Cloze
+:END:
+**** Cloze
+Any topological space that is not {{c1::normal}} is non-metrizable.
+*** countable product of metric spaces is metrizable
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Cloze
+:END:
+**** Cloze
+If $\forall n \in \mathbb{N}$ :
+$(X_n,d_n)$ are {{c1::metric spaces}},
+then $X$ := {{c2::$\prod_{n \in \mathbb{N} } X_n$}} is
+{{c3::metrizable under the product topology}}.
+**** proof
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Basic
+:END:
+***** Front
+If $\forall n \in \mathbb{N}$ :
+$(X_n,d_n)$ are metric spaces,
+prove that $X$ := $\prod_{n \in \mathbb{N}} X_n$ is
+metrizable under the product topology.
+***** Back
+For $n \in \mathbb{N}$ and $x_n,  y_n \in X_n$ let
+$\tilde{d}(x_n,y_n)$ :=
+$\frac{d_n(x_n,y_n)}{1 + d_n(x_n,y_n)} \le 1$,
+noting that this is an equivalent metric to $d_n$.
+Then define
+\[D :
+X \rightarrow \mathbb{R} :
+(x_n)_{n \in \mathbb{N}}, (y_n)_{n \in \mathbb{N}} \mapsto \sum_{n \in \mathbb{N}} \left(\frac{\tilde{d}_n(x_n,y_n)}{2^n}\right).\]
+As shown in problem set 1,
+$D$ induces the product topology on $X$.
+** countable product of compact metric spaces
+*** discrete topology
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Cloze
+:END:
+**** Cloze
+$\tau$ := {{c1::$\mathcal{P}(X)$}} is {{c2::the discrete topology on $X$}}.
+**** counterexample
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Cloze
+:END:
+***** Cloze
+If $\tau$ is {{c1::the discrete topology}} and
+$\forall n \in \mathbb{N}$ : $X_n$ := {{c1::$\bigl(\{0,1\},\tau\bigr)$}},
+then $\prod_{n \in \mathbb{N}} X_n$ is not compact under {{c2::the discrete topology}}
+because {{c3::it is an open cover of itself but has no finite subcover}}.
+*** countable Tychonoff
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Cloze
+:END:
+**** Cloze
+({{c1::Tychonoff for countable products}}.)
+If {{c4::$\forall n \in \mathbb{N}$ : $(X_n,\tau_n)$ is a compact topological space}},
+then $X$ := {{c2::$\prod_{n \in \mathbb{N} } X_\alpha$}} is {{c3::compact under the product topology}}.
+**** proof
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Basic
+:END:
+***** Front
+(Tychonoff for countable products.)
+If $\forall n \in \mathbb{N}$ : $X_n$ is compact,
+prove that $X$ := $\prod_{n \in \mathbb{N}} X_\alpha$ is compact under the product topology $\tau$.
+***** Back
+Suppose $X$ is not compact and let
+$C$ := $\{C_\alpha\}_{\alpha \in I}$ be an open cover of $X$ with no finite subcover.
+
+Suppose for every $x_0 \in X_0$ that there is a set $U_{x_0} \in \tau_0$ such that
+\[x_0 \in U_{x_0} \land \exists I' \subseteq I :
+\left[|I'| \in \mathbb{N} \land
+\left(U_{x_0} \times \prod_{n \in \mathbb{Z}_+} X_n\right) \subseteq \bigcup_{\alpha \in I'} C_\alpha.\right]\]
+Then
+\[X \subseteq \bigcup_{x_0 \in X_0} \left(U_{x_0} \times \prod_{n \in \mathbb{Z}_+} X_n\right).\]
+Since $X_0$ is compact, this open cover has a finite subcover
+and contradicts that $C$ has no finite subcover.
+Thus there is some $x_0 \in X_0$ for which no such $U_{x_0}$ exists.
+
+By similar reasoning, there exists $x_1 \in X_1$ such that no cylinder set of the form
+$U_{x_0} \times U_{x_1} \times \prod_{n \in \mathbb{Z}_+ \setminus \{1\}} X_n$
+both satisfies $(x_0,x_1) \in U_{x_0} \times U_{x_1}$
+and has a finite open cover in $C$; otherwise,
+\[\left(U_{x_0} \times \prod_{n \in \mathbb{Z}_+} X_n\right) \subseteq \bigcup_{x_1 \in X_1} \left(U_{x_0} \times U_{x_1} \times \prod_{n \in \mathbb{Z}_+ \setminus \{1\}} X_n\right)\]
+would have a finite subcover by compactness of $X_1$
+and thus $\left(U_{x_0} \times \prod_{n \in \mathbb{Z}_+} X_n\right)$ would have a finite open cover in $C$.
+
+Selecting $x_n \in X_n$ in this fashion for every $n \in \mathbb{N}$
+provides a point $x$ := $(x_n)_{n \in \mathbb{N}} \in X$ such that,
+for any $m \in \mathbb{N}$,
+every cylinder set of the form
+\[\prod_{n=0}^m U_n \times \prod_{n=m+1}^\infty X_n,\]
+where $(x_n)_{n=0}^m \in \prod_{n=0}^m U_n$,
+has no finite open cover in $C$.
+But this cannot be;
+$\exists C_\alpha \in C$ : $x \in C_\alpha$,
+implying that $x$ lies in some cylinder set
+$V := \prod_{n \in \mathbb{N}} V_n \subseteq C_\alpha$
+in the product topology basis.
+Taking $m$ to be the maximum index $n$ for which $V_n \neq X_n$ gives
+\[(x_n)_{n \in \mathbb{N}} \in \left(\prod_{n=0}^m V_n \times \prod_{n=m+1}^\infty X_n\right) \subseteq C_\alpha,\]
+which is certainly a finite cover.
+** separability
+*** definition
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Cloze
+:END:
+**** Cloze
+A {{c1::metric space}} is {{c2::separable}} iff
+{{c3::it has a countable dense subset}}.
+*** compact metric spaces are separable
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Cloze
+:END:
+**** Cloze
+All {{c1::compact}} metric spaces are separable.
+**** proof
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Basic
+:END:
+***** Front
+Prove that all compact metric spaces are separable.
+***** Back
+Let $X$ be a compact metric space.
+For $n \in \mathbb{Z}_+$,
+$X \subseteq \bigcup_{x \in X} B\left(x, \frac{1}{n}\right)$,
+and by compactness, let $N_n \subseteq X$ be a finite subset such that
+$X \subseteq \bigcup_{x \in N_n} B\left(x, \frac{1}{n}\right)$.
+Thus $\bigcup_{n \in \mathbb{Z}_+} N_n \subseteq X$ is dense and countable as the countable union of finite sets.
+*** metric spaces with countable basis are separable
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Cloze
+:END:
+**** Cloze
+A metric space $X$ with topology $\tau$ is {{c1::separable}} iff
+{{c2::$\exists \{U_n\}_{n \in \mathbb{N} } \subseteq \tau$ : $\forall U \in \tau$ : $\exists N \subseteq \mathbb{N}$ : $U = \bigcup_{n \in N} U_n$}};
+in other words, {{c2::$\tau$ has a countable basis}}.
+*** subspaces of separable spaces are separable
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Cloze
+:END:
+**** Cloze
+Any {{c2::subspace}} of a separable metric space is {{c1::separable}}.
+*** examples of separable spaces
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Cloze
+:END:
+**** Cloze
+{{c1::$\mathbb{R}^n$}}, {{c1::$C([a,b])$}}, and {{c1::$L^p([a,b])$ for $p \in [1,\infty)$}}
+are examples of separable spaces.
+*** example of a non-separable space
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Cloze
+:END:
+**** Cloze
+{{c2::$L^{\infty}([a,b])$}} is an example of a {{c1::non-separable}} space.
