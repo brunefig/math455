@@ -297,7 +297,7 @@ engineer: 9 is prime
 **** Cloze
 A set $X$ is {{c1::<<<convex>>>}} iff
 {{c2::the line segment joining any two points in $X$ lies within $X$}}.
-* 2024-01-10 contraction mappings & product topologies
+* 2024-01-10 contraction mappings & product topology
 $\alpha \in I$ henceforth refers to members of a possibly uncountable index set $I$.
 ** arbitrary union of intersecting connected sets is connected
 :PROPERTIES:
@@ -572,7 +572,7 @@ $\implies$
 If $f$ : $X \rightarrow Y$ for {{c3::topological spaces}} $(X,\tau_X)$ and $(Y,\tau_Y)$
 and $\mathcal{B}$ is a basis for $\tau_Y$,
 then {{c1::$f$ is continuous}} iff {{c2::$\forall U \in \mathcal{B}$ : $f^{-1}(U) \in \tau_X$}}.
-** product topologies
+** product topology
 *** cylinder sets
 :PROPERTIES:
 :ANKI_NOTE_TYPE: Cloze
@@ -1154,15 +1154,13 @@ $D$ induces the product topology on $X$.
 :END:
 **** Cloze
 $\tau$ := {{c1::$\mathcal{P}(X)$}} is {{c2::the discrete topology on $X$}}.
-**** counterexample
+**** compact product counterexample
 :PROPERTIES:
 :ANKI_NOTE_TYPE: Cloze
 :END:
 ***** Cloze
-If $\tau$ is {{c1::the discrete topology}} and
-$\forall n \in \mathbb{N}$ : $X_n$ := {{c1::$\bigl(\{0,1\},\tau\bigr)$}},
-then $\prod_{n \in \mathbb{N}} X_n$ is not compact under {{c2::the discrete topology}}
-because {{c3::it is an open cover of itself but has no finite subcover}}.
+$X$ := $\prod_{n \in \mathbb{N}} \{0,1\}$ is not compact under {{c2::the discrete topology}}
+because {{c3::the set of singletons in $X$ is an open cover of $X$ with no finite subcover}}.
 *** countable Tychonoff
 :PROPERTIES:
 :ANKI_NOTE_TYPE: Cloze
