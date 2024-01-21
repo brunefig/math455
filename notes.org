@@ -265,15 +265,6 @@ if $q$ is {{c2::divisible by a large power of $p$}}.
 The $p\text{-adic}$ norm of $0$ is $0$ because
 {{c1::$0$ is divisible by any power of $p$}}.
 **** COMMENT completion of Q wrt the p-adic norm
-~= Laurent series in powers of p with finitely many negative powers of p
-extend Taylor series into negative powers
-a_{-k} p^{-k} + a_{-k+1} p^{-k+1} + \dots + a_0 + a_1 p + a_2 p^2 + \dots + a_n p^n + \dots
-where $a_i \in \{\0,\dots,p-1}$ are remainders mod p
-
-what are the 2-adic series expansions of 12 and 1/3?
-if 12 is a p-adic integer then its series begins at a positive index (in this case 2)
-but then 1/3 has infinitely many negative power terms??????????
-
 ***** p-adic rationals
 \lim \|x\|_p = \|a_n p^n + a_{n+1} p^{n+1} + \dots\|_p \rightarrow 0
 this set of Laurent series is $\mathbb{Q}_p$, the p-adic rational numbers
@@ -295,7 +286,7 @@ engineer: 9 is prime
 :ANKI_NOTE_TYPE: Cloze
 :END:
 **** Cloze
-A set $X$ is {{c1::<<<convex>>>}} iff
+A set $X$ is {{c1::<<<convex>>>}} when
 {{c2::the line segment joining any two points in $X$ lies within $X$}}.
 * 2024-01-10 contraction mappings & product topology
 $\alpha \in I$ henceforth refers to members of a possibly uncountable index set $I$.
@@ -333,7 +324,7 @@ which contradicts that $A_\alpha \cap A_{\alpha'} \neq \emptyset$.
 :END:
 **** Cloze
 A topological space $X$ is {{c1::totally disconnected}}
-iff {{c2::every connected subset of $X$ is a singleton}}.
+when {{c2::every connected subset of $X$ is a singleton}}.
 *** totally disconnected subspaces of R
 :PROPERTIES:
 :ANKI_NOTE_TYPE: Cloze
@@ -355,7 +346,7 @@ contains {{c3::only}} {{c2::points}} and {{c3::no}} {{c2::intervals}}.
 **** Cloze
 For a metric space $(X,d)$,
 $T$ : {{c1::$X$}} $\rightarrow$ {{c1::$X$}}
-is {{c2::a contraction mapping}} iff
+is {{c2::a contraction mapping}} when
 {{c3::$\exists c \in [0,1)$ : $\forall x,x' \in X$ :
 $d\bigl(T(x),T(x')\bigr) \le c \cdot d(x,x')$}}.
 *** contraction mappings are continuous
@@ -839,7 +830,7 @@ hence $|d(x,A) - d(x',A)| \le \epsilon$.
 **** Cloze
 A topological space $(X,\tau)$ is
 {{c1::a <<<Hausdorff space>>>}}
-iff {{c2::$\forall x \neq x' \in X$ : $\exists U, U' \in \tau$ : $\bigl[U \cap U'$ = $\emptyset \land (x,x') \in U \times U'\bigr]$}}.
+when {{c2::$\forall x \neq x' \in X$ : $\exists U, U' \in \tau$ : $\bigl[U \cap U'$ = $\emptyset \land (x,x') \in U \times U'\bigr]$}}.
 *** metric spaces are Hausdorff spaces
 :PROPERTIES:
 :ANKI_NOTE_TYPE: Cloze
@@ -872,7 +863,7 @@ Let $x' \in X$. Then
 :ANKI_NOTE_TYPE: Cloze
 :END:
 **** Cloze
-$\tau$ := {{c1::$\{\emptyset,X\}$}} is {{c2::the trivial topology on $X$}}.
+$\tau$ := {{c1::$\{\emptyset,X\}$}} is {{c2::the <<<trivial topology>>> on $X$}}.
 **** trivial topological are not Hausdorff spaces
 :PROPERTIES:
 :ANKI_NOTE_TYPE: Cloze
@@ -886,7 +877,7 @@ then $(X,\tau)$ is {{c3::not a Hausdorff space}}.
 :ANKI_NOTE_TYPE: Cloze
 :END:
 **** Cloze
-The {{c1::subspace topology}} on a subspace $Y$ of a topological space $(X,\tau)$
+The {{c1::<<<subspace topology>>>}} on a subspace $Y$ of a topological space $(X,\tau)$
 is $\tau_Y$ := {{c2::$\bigl\{U \cap Y \bigm| U \in \tau\bigr\}$}}.
 **** subspaces of Hausdorff spaces are Hausdorff spaces
 :PROPERTIES:
@@ -947,7 +938,7 @@ covers $A$.
 Then $x' \in \bigcap_{n \in [m]} U'_{x_n} \subseteq X \setminus A$,
 and this intersection is open and disjoint to $\bigcup_{n \in [m]} U_{x_n}$.
 Thus $X \setminus A$ is open.
-*** continuous bijections from a compact space to a Hausdorff space are homeomorphism
+*** continuous bijections from a compact space to a Hausdorff space are homeomorphisms
 :PROPERTIES:
 :ANKI_NOTE_TYPE: Cloze
 :END:
@@ -976,7 +967,7 @@ It follows that $f^{-1}$ is continuous.
 :ANKI_NOTE_TYPE: Cloze
 :END:
 ***** Cloze
-A {{c3::Hausdorff space}} $(X,\tau)$ is {{c2::a normal space}} iff
+A {{c3::Hausdorff space}} $(X,\tau)$ is {{c2::a <<<normal>>> space}} when
 {{c1::\[\exists U,U' \in \tau : \bigl[U \cap U \neq \emptyset \land A \subseteq U \land A' \subseteq U'\bigr]\]}}
 for any {{c1::disjoint closed sets $A,A' \subseteq X$}}.
 **** compact Hausdorff spaces are normal spaces
@@ -1040,7 +1031,7 @@ where $f$ : $x \mapsto d(x,A) - d(x,A')$ is continuous as the difference between
 :ANKI_NOTE_TYPE: Cloze
 :END:
 **** Cloze
-A {{c1::Lebesgue number}} of
+A {{c1::<<<Lebesgue number>>>}} of
 {{c2::an open cover $\{A_\alpha\}_{\alpha \in I}$ of $X$}}
 is {{c3::$\epsilon > 0$ such that $\forall x \in X$ : $\exists \alpha \in I$ : $B(x,\epsilon) \subseteq A_\alpha$}}.
 *** open covers of compact metric spaces have a Lebesgue number
@@ -1109,7 +1100,7 @@ d\bigl(f(x),y\bigr) + d\bigl(f(x'),y\bigr)
 :ANKI_NOTE_TYPE: Cloze
 :END:
 **** Cloze
-A topological space $(X,\tau)$ is {{c1::metrizable}} iff
+A topological space $(X,\tau)$ is {{c1::<<<metrizable>>>}} when
 {{c2::there exists a metric $d$ on $X$ that induces $\tau$}}.
 In other words, {{c2::the set of open balls with respect to $d$ is a basis for $\tau$}}.
 *** metrizable spaces are normal
@@ -1220,7 +1211,7 @@ which is certainly a finite cover.
 :ANKI_NOTE_TYPE: Cloze
 :END:
 **** Cloze
-A {{c1::metric space}} is {{c2::separable}} iff
+A {{c1::metric space}} is {{c2::<<<separable>>>}} when
 {{c3::it has a countable dense subset}}.
 *** compact metric spaces are separable
 :PROPERTIES:
@@ -1268,3 +1259,274 @@ are examples of separable spaces.
 :END:
 **** Cloze
 {{c2::$L^{\infty}([a,b])$}} is an example of a {{c1::non-separable}} space.
+* 2024-01-19 boundedness & sequences of functions
+** total boundedness
+*** definition
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Cloze
+:END:
+**** Cloze
+A metric space $X$ is {{c1::<<<totally bounded>>>}} when
+{{c2::$\forall \epsilon > 0$ : $\exists X' \subseteq X$ : $|X'| \in \mathbb{N} \land X \subseteq \bigcup_{x \in X'} B(x,\epsilon)$}}.
+*** Cantor Intersection Theorem
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Cloze
+:END:
+**** Cloze
+({{c3::Cantor Intersection Theorem}}.)
+A metric space $X$ is {{c2::complete}} iff
+every collection
+$\{A_n\}_{n \in \mathbb{N}}$
+of {{c3::nonempty closed subsets of $X$}} such that
+{{c3::\[\forall n \in \mathbb{N} : A_n \subseteq A_{n+1} \quad\text{and}\quad \lim_{n \rightarrow \infty} \text{diam} (A_n) = 0\]}}
+satisfies
+{{c1::$\exists x \in X$ : $\bigcap_{n \in \mathbb{N} } A_n = \{x\}$}}.
+**** COMMENT TODO
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Basic
+:ANKI_FAILURE_REASON: cannot create note because it is empty
+:END:
+***** Front
+***** Back
+*** equivalent conditions to compactness
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Cloze
+:END:
+**** Cloze
+A metric space $X$ is (1) {{c3::complete and totally bounded}} $\iff$
+(2) $X$ is {{c1::compact}} $\iff$
+(3) $X$ is {{c2::sequentially compact}}.
+**** COMMENT TODO
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Basic
+:END:
+***** Front
+Prove that a metric space $X$ is (1) complete and totally bounded $\iff$
+(2) $X$ is compact $\iff$
+(3) $X$ is sequentially compact.
+***** Back
+($1 \implies 2$.)
+Suppose $X$ is complete and totally bounded.
+Let $U$ := $\{U_\alpha\}_{\alpha \in I}$ be
+an open cover of $X$ with no finite subcover.
+
+Let $X_0 \subseteq X$ be a finite set such that
+$X \subseteq \bigcup_{x \in X_0} B(x, 1)$.
+Then there is some $x_0 \in X_0$
+for which $B(x_0,1)$ has no finite cover in $U$; let $B_0$ be its closure.
+
+For $n \in \mathbb{Z}_+$,
+let $X_n \subseteq X$ be a finite set such that
+$X \subseteq \bigcup_{x \in X_n} B\left(x,2^{-n}\right)$,
+select $x_n \in X_n$ so that
+$B_{n-1} \cap B\left(x_n,2^{-n}\right)$
+has no finite cover in $U$,
+and let $B_n$ be the closure of that intersection,
+which has $\text{diam} (B_n) \le 2^{1-n}$.
+
+Since
+$\forall n \in \mathbb{N}$ : $B_n \subseteq B_{n+1}$,
+and $\lim_{n \in \mathbb{N}} \text{diam} (B_n)$ = $0$,
+it follows by the Cantor Intersection Theorem that
+$\exists b \in X$ :
+$\bigcap_{n \in \mathbb{N}} B_n = \{b\}$
+Thus $\exists U_b \in U$ : $b \in U_b \implies$
+$\bigl[\exists \epsilon > 0$ :
+$B(b,\epsilon) \subseteq U_b\bigr]$.
+But then $\exists n \in \mathbb{N}$ : $B_n \subseteq B(b,\epsilon) \subseteq U_b$,
+which contradicts that $B_n$ has no finite cover in $U$ by construction.
+Hence $X$ is compact.
+** continuous functions on a compact metric space
+*** normed vector space of continuous functions on a compact metric space
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Cloze
+:END:
+**** Cloze
+For a {{c5::compact metric space}} $X$,
+
+{{c1::$C(X)$}} := {{c2::$\bigl\{f : X \rightarrow \mathbb{R} \mid f \text{ is continuous}\bigr\}$}}
+
+is a normed vector space with
+
+{{c4::$\|f\|_\infty$}} := {{c3::$\max_{x \in X} |f(x)|$}}.
+*** continuous functions on a compact metric space are complete
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Cloze
+:END:
+**** Cloze
+If a metric space $(X,d)$ is {{c2::compact}},
+then {{c1::$\bigl(C(X),||\cdot||_\infty\bigr)$}} is {{c3::complete}}.
+**** proof
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Basic
+:END:
+***** Front
+If a metric space $(X,d)$ is compact,
+prove that $\bigl(C(X),||\cdot||_\infty\bigr)$ is complete.
+***** Back
+Let $(f_n)_{n \in \mathbb{N}}$ be
+a Cauchy sequence in $C(X)$
+and let $(f_{n_k})_{k \in \mathbb{N}}$ be a subsequence such that
+$\forall k \in \mathbb{N}$ :
+$\left\|f_{n_{k+1}} - f_{n_k}\right\|_\infty \le 2^{k}$.
+For $x \in X$ and $j,k \in \mathbb{N}$,
+\[\left|f_{n_{k+j}}(x) - f_{n_k}(x)\right| \le
+\left\|f_{n_{k+j}} - f_{n_k}\right\|_\infty \le
+\sum_{i=k}^{k+j-1} \left\|f_{n_{i+1}} - f_{n_i}\right\|_\infty
+\le \sum_{i=k}^\infty 2^i,\]
+hence $\bigl(f_{n_k}(x)\bigr)$ is a Cauchy sequence and converges in $\mathbb{R}$.
+Let $f$ be the pointwise limit of
+$\bigl(f_{n_k}(x)\bigr)_{k \in \mathbb{N}}$.
+Taking the limit of the previous inequality
+as $j \rightarrow \infty$ gives
+\[\forall k \in \mathbb{N} :
+\left\|f - f_{n_k}\right\|_\infty =
+\max_{x \in X} \left|f(x) - f_{n_k}(x)\right| \le
+\sum_{i=k}^\infty 2^i,\]
+so the convergence is uniform.
+Thus $(f_n)_{n \in \mathbb{N}}$ is a Cauchy sequence with a convergent subsequence in $C(X)$
+and itself converges.
+** boundedness of sets of functions
+*** pointwise boundedness
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Cloze
+:END:
+**** Cloze
+If $X$ is a {{c3::metric space}}
+and $\forall n \in \mathbb{N}$ :
+$f_n$ : $X \rightarrow \mathbb{R}$,
+then {{c3::$\{f_n\}_{n \in \mathbb{N}}$}}
+is {{c2::<<<pointwise bounded>>>}} when
+{{c1::$\forall x \in X$ : $\bigl\{f_n(x)\bigr\}_{n \in \mathbb{N} } \subseteq \mathbb{R}$ is a bounded set}}.
+*** uniform boundedness
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Cloze
+:END:
+**** Cloze
+If $X$ is a {{c3::metric space}}
+and $\forall n \in \mathbb{N}$ :
+$f_n$ : $X \rightarrow \mathbb{R}$,
+then {{c3::$\{f_n\}_{n \in \mathbb{N}}$}}
+is {{c2::<<<uniformly bounded>>>}} when
+{{c1::$\exists m > 0$ : $\forall (x,n) \in X \times \mathbb{N}$ : $|f_n(x)| \le m$}}.
+** equicontinuity
+*** equicontinuity at a point
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Cloze
+:END:
+**** Cloze
+A set $\mathcal{F}$ of {{c3::real-valued functions on a metric space $X$}} is
+{{c1::<<<equicontinuous>>>}} at $x \in X$ when
+{{c2::$\forall \epsilon > 0$ : $\exists \delta > 0$ : $\forall f \in \mathcal{F}$ : $\forall x' \in X$ : $d(x,x') < \delta \implies |f(x) - f(x')| < \epsilon$}}.
+*** definition
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Cloze
+:END:
+**** Cloze
+A set $\mathcal{F}$ of {{c3::real-valued functions on a topological space $X$}} is
+{{c1::<<<pointwise equicontinuous>>>}}, or simply {{c1::equicontinuous}}, when
+{{c2::$\forall x \in X$ : $\mathcal{F}$ is equicontinuous at $x$}}.
+*** finite sets of continuous functions are equicontinuous
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Cloze
+:END:
+**** Cloze
+Every {{c1::finite}} set of {{c1::continuous}} functions is {{c2::equicontinuous}}.
+*** functions on an interval with uniformly bounded derivatives are equicontinuous
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Cloze
+:END:
+**** Cloze
+For $a,b,m \in \mathbb{R}_+$ such that $a < b$,
+{{c1::\[\Bigl\{f \in C([a,b]) \Bigm| \forall x \in [a,b] : \left|f'(x)\right| \le m\Bigr\}\]}}
+is {{c2::equicontinuous}} by {{c3::the Mean Value Theorem}}, since
+{{c3::\[\left|f(x)-f(x')\right| \le \left|x-x'\right| \sup_{t \in [x,x']} \left|f'(t)\right| \le \left|x-x'\right|m < \epsilon\]}}
+for {{c3::$x,x' \in [a,b]$ such that $x<x' \land |x-x'| < \frac{\epsilon}{m}$}}.
+*** Arzelà--Ascoli lemma
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Cloze
+:END:
+**** Cloze
+(Arzelà--Ascoli lemma.)
+If a metric space $(X,d)$ is {{c1::separable}}
+and $(f_n)_{n \in \mathbb{N} }$
+is {{c1::an equicontinuous and pointwise bounded sequence of functions in $C(X)$}}, then
+{{c2::a subsequence of $(f_n)_{n \in \mathbb{N} }$ converges pointwise to
+some function $f$ : $X \rightarrow \mathbb{R}$}}.
+**** proof
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Basic
+:END:
+***** Front
+(Arzelà--Ascoli lemma.)
+If a metric space $(X,d)$ is separable
+and $(f_n)_{n \in \mathbb{N} }$
+is an equicontinuous and pointwise bounded sequence of functions in $C(X)$, prove that
+a subsequence of $(f_n)_{n \in \mathbb{N} }$
+converges pointwise to
+some function $f$ : $X \rightarrow \mathbb{R}$.
+***** Back
+Let $X'$ := $\{x_k\}_{k \in \mathbb{N}} \subseteq X$ be dense in $X$.
+Since $\bigl\{f_n(x_0)\bigr\}_{n \in \mathbb{N}} \subseteq \mathbb{R}$ is bounded,
+$\bigr(f_n(x_0)\bigr)_{n \in \mathbb{N}}$ has a convergent subsequence.
+Let $(n_{0,i})_{i \in \mathbb{N}}$ be a sequence of indices that defines such a subsequence,
+and let $l_0$ := $\lim_{i \rightarrow \infty} f_{n_{0,i}}(x_0)$.
+
+For $k \in \mathbb{Z}_+$,
+let $(n_{k,i})_{i \in \mathbb{N}}$ be a subsequence of $(n_{k-1,i})_{i \in \mathbb{N}}$ such that
+$f_{n_{k,i}}(x_k) \rightarrow l_k$.
+This is always possible because $\bigr(f_{n_{k-1,i}}(x_k)\bigr)_{i \in \mathbb{N}}$ is bounded and thus has a convergent subsequence.
+To avoid producing an ``empty'' sequence from this infinite construction,
+take the diagonal sequence
+$(n_{i,i})_{i \in \mathbb{N}}$
+and let
+\[f(x_k) := l_k = \lim_{i \rightarrow \infty} f_{n_{i,i}}\]
+for $k \in \mathbb{N}$.
+Then $f$ is the pointwise limit of $\bigl\{f_{n_{i,i}}\bigr\}$ in $X'$.
+
+Now let $x \in X$ and $\epsilon > 0$.
+Since $\{f_n\}_{n \in \mathbb{N}}$ is equicontinuous,
+$\exists \delta > 0$ :
+$\forall n \in \mathbb{N}$ :
+$\forall x' \in X$ :
+$d(x,x') < \delta \implies |f_n(x) - f_n(x')| < \epsilon$,
+and since $X'$ is dense
+$\exists x' \in X'$ : $d(x,x') < \delta$.
+Let $m \in \mathbb{N}$ such that
+\[\forall i \ge j \ge m : \left|f_{n_{i,i}}(x') - f_{n_{j,j}}(x')\right| < \frac{\epsilon}{3}.\]
+By the triangle inequality,
+\[\begin{align*}
+\forall i \ge j \ge m : \left|f_{n_{i,i}}(x) - f_{n_{j,j}}(x)\right|
+&\le \left|f_{n_{i,i}}(x) - f_{n_{i,i}}(x')\right| \\
+&+ \left|f_{n_{i,i}}(x') - f_{n_{j,j}}(x')\right| \\
+&+ \left|f_{n_{j,j}}(x') - f_{n_{j,j}}(x)\right|
+< 3 \cdot \frac{\epsilon}{3}.
+\end{align*}\]
+It follows that $\bigl(f_{n_{i,i}}(x)\bigr)_{i \in \mathbb{N}}$
+is a Cauchy sequence in $\mathbb{R}$, so it converges;
+setting $f(x)$ to its limit
+makes $f$ converge pointwise in $X$.
+* COMMENT 2024-01-24
+** Arzelà--Ascoli theorem
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Cloze
+:END:
+*** Cloze
+(Arzelà--Ascoli theorem.)
+If a metric space $(X,d)$ is compact and separable
+and $(f_n)_{n \in \mathbb{N} }$
+is an equicontinuous and uniformly bounded sequence of functions in $C(X)$, then
+a subsequence of $(f_n)_{n \in \mathbb{N} }$
+converges uniformly to some function $f \in C(X)$.
+*** proof
+:PROPERTIES:
+:ANKI_NOTE_TYPE: Basic
+:END:
+**** Front
+(Arzelà--Ascoli theorem.)
+If a metric space $(X,d)$ is compact and separable
+and $(f_n)_{n \in \mathbb{N} }$
+is an equicontinuous and uniformly bounded sequence of functions in $C(X)$, prove that
+a subsequence of $(f_n)_{n \in \mathbb{N} }$
+converges uniformly to some function $f \in C(X)$.
+**** Back
